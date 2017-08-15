@@ -1,0 +1,32 @@
+/*	COLORS	*/
+$night-blue: #0a091b;
+$night-grayish-blue: #171626;
+$dark-blue: #09203f;
+
+$light-grey: #97979f;
+$sea-blue: #a4e3f2;
+
+$light-blue: #8fd3f4;
+$light-green: #84fab0;
+
+$bright-red: #ff0000;
+
+$white: #fff;
+$black: #000;
+
+$dirty-white: #fdfcfb;
+$light-brown: #e2d1c3;
+
+/*	SIZES	*/
+$input-width: 250px;
+$input-height: 35px;
+$nominal-padding: 15px;
+$sidebar-width: 250px;
+
+
+/*	MIXINS	*/
+@mixin circle($size) {
+	width: $size;
+	height: $size;
+	border-radius: $size;
+}

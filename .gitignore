@@ -1,2 +1,8 @@
 node_modules
-config.js
+
+server/config.js
+server/node_modules
+server/npm-*
+
+client/node_modules
+client/npm-*
