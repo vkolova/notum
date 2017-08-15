@@ -3,10 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "main": "main.js",
+  "scripts": {
+    "start": "concurrently \"npm run webpack\"",
+    "webpack": "webpack-dev-server",
+    "electron": "electron ."
+  },
   "dependencies": {
     "axios": "^0.16.2",
     "concurrently": "^3.5.0",
     "express": "^4.15.3",
+    "font-awesome": "^4.7.0",
     "node-notifier": "git+https://github.com/mikaelbr/node-notifier.git",
     "particlesjs": "git+https://github.com/marcbruederlin/particles.js.git",
     "react": "^15.5.4",
@@ -17,53 +23,14 @@
   },
   "devDependencies": {
     "autoprefixer": "7.1.0",
-    "babel-core": "6.24.1",
-    "babel-eslint": "7.2.3",
-    "babel-loader": "7.0.0",
-    "babel-preset-react-app": "^3.0.0",
-    "babel-runtime": "6.23.0",
-    "case-sensitive-paths-webpack-plugin": "1.1.4",
     "css-loader": "0.28.1",
-    "dotenv": "4.0.0",
     "electron": "^1.6.10",
-    "eslint": "3.19.0",
-    "eslint-config-react-app": "^1.0.4",
-    "eslint-loader": "1.7.1",
-    "eslint-plugin-flowtype": "2.33.0",
-    "eslint-plugin-import": "2.2.0",
-    "eslint-plugin-jsx-a11y": "5.0.3",
-    "eslint-plugin-react": "7.0.1",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "0.11.1",
-    "html-webpack-plugin": "2.28.0",
-    "node-sass": "^4.5.3",
-    "object-assign": "4.1.1",
-    "postcss-flexbugs-fixes": "3.0.0",
-    "postcss-loader": "2.0.5",
-    "promise": "7.1.1",
-    "query-string": "^4.3.4",
-    "react-dev-utils": "^3.0.0",
-    "react-error-overlay": "^1.0.7",
     "sass-loader": "^6.0.5",
     "style-loader": "0.17.0",
     "url-loader": "0.5.8",
     "webpack": "^2.6.1",
     "webpack-dev-server": "2.4.5",
-    "webpack-manifest-plugin": "1.1.0",
-    "whatwg-fetch": "2.0.3"
-  },
-  "scripts": {
-     "start": "concurrently \"npm run app\" \"npm run electron\"",
-    "app": "node scripts/start.js",
-    "test": "",
-    "electron": "electron ."
-  },
-  "babel": {
-    "presets": [
-      "react-app"
-    ]
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   }
 }

@@ -14,7 +14,7 @@ export default class AuthContainer extends Component {
 				<Switch>
 					<Route exact path='/sign-up' component={SignUp}></Route>
 					<Route exact path='/' component={SignIn}></Route>
-                    <Route path='*' component={Error404}></Route>
+                    // <Route path='*' component={Error404}></Route>
 				</Switch>
 			</div>
 		)
