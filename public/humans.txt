@@ -1,0 +1,17 @@
+# TEAM (OF ONE)
+
+    Developer: Veselina Kolova
+    Twitter: @vkolova
+
+    UI developer: Veselina Kolova
+    Twitter: @vkolova
+
+    Web designer: Veselina Kolova
+    Twitter: @vkolova
+
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5
+    Node.js, React
+    Atom
