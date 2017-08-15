@@ -1,0 +1,67 @@
+@import '_variables';
+
+.error-page {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: $night-blue;
+	background-image: linear-gradient(to right, $dark-blue 0%, $night-grayish-blue 100%);
+	color: #fff;
+	overflow: hidden;
+}
+
+.error-404 {
+	display: flex;
+    align-items: baseline;
+	font-size: 150px;
+}
+
+.big-planet {
+	@include circle(110px);
+	background-image: linear-gradient(120deg, $light-green 0%, $light-blue 100%);
+	box-shadow: 0 0 45px rgba($white, 0.7);
+}
+
+.medium-planet {
+	@include circle(30px);
+	bottom: 15%;
+	right: 20%;
+	position: absolute;
+	background-image: linear-gradient(135deg, rgba($dirty-white, 0.5) 0%, rgba($light-brown, 0.5) 100%);
+	box-shadow: 0 0 15px rgba($white, 0.5);
+}
+
+
+$class-small-planet: small-planet !default
+
+@for $i from 1 through 10 {
+	.#{$class-small-planet}-#{$i} {
+		@include circle(#{$i}px);
+		top: random(100) + %;
+		left: random(100) + %;
+		position: absolute;
+		background-image: linear-gradient(135deg, rgba($dirty-white, 0.7) 0%, rgba($light-blue, 0.7) 100%);
+		box-shadow: 0 0 15px rgba($white, 0.7);
+	}
+}
+
+.message {
+	color: #97979f;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+
+.back-link {
+	margin-top: 50px;
+	color: #97979f;
+	text-transform: uppercase;
+    text-decoration: none;
+	font-weight: bold;
+	cursor: pointer;
+}

@@ -1,0 +1,26 @@
+@import '_variables';
+
+.player {
+    width: 700px;
+    height: 400px;
+    position: relative;
+
+    &:hover {
+        .pl-controls {
+            opacity: 1;
+        }
+    }
+}
+
+.pl-controls {
+    height: 30px;
+    bottom: 0;
+    position: absolute;
+    display: flex;
+    color: $white;
+    opacity: 0;
+}
+
+video {
+    border: 1px solid gray;
+}

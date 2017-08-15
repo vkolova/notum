@@ -1,0 +1,21 @@
+@import '_variables';
+
+.main-layout {
+    display: flex;
+    flex: 1;
+}
+
+.view-wrapper {
+    display: flex;
+    flex: 1;
+    background-color: $white;
+}
+
+.particlesjs-background {
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	opacity: 0.2;
+}

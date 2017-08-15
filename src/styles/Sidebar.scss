@@ -1,0 +1,42 @@
+@import '_variables';
+
+.sidebar {
+	width: $sidebar-width;
+    color: $dirty-white;
+	background-color: $night-grayish-blue;
+}
+
+.sb-title,
+.sb-item {
+    height: 35px;
+    padding: 0 30px;
+    line-height: 35px;
+}
+
+.sb-title {
+    color: rgba($white, 0.3);
+    text-transform: uppercase;
+}
+
+.sb-item {
+    &:hover {
+        background-color: rgba($white, 0.1)
+    }
+}
+
+.sb-link {
+    color: rgba($white, 0.5);
+
+    &:hover {
+        color: rgba($white, 0.9);
+    }
+}
+
+.sb-link-active {
+    color: $white;
+}
+
+.sb-hr {
+	margin: 10px 20px;
+	border-bottom: 1px solid rgba($white, 0.3);
+}
