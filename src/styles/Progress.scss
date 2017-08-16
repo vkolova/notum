@@ -1,0 +1,30 @@
+.progress {
+    width: 300px;
+    position: relative;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    opacity: 0.5;
+}
+
+.progress-val-bar {
+    width: 50px;
+    height: 1px;
+    top: 0;
+    position: absolute;
+    background-color: white;
+    opacity: 1;
+}
+
+.progress-val-pointer {
+    width: 5px;
+    height: 5px;
+    top: -2px;
+    left: 50px;
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+}
