@@ -1,14 +1,20 @@
 const webpack = require('webpack');
 const path = require('path')
+const nodeExternals = require('webpack-node-externals');
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
 	entry: ['./src/index.jsx'],
 	output: {
-		path: path.resolve(__dirname, 'public/dist'),
+		path: path.resolve(__dirname, 'public'),
 		filename: 'app.js'
+	},
+	devServer: {
+		contentBase: path.join(__dirname, 'public'),
+		compress: true,
+		port: 3000
 	},
 	module: {
 		rules: [
@@ -18,27 +24,18 @@ module.exports = {
 				loader: 'babel-loader'
 			},
 			{
-				test: /\.(png|jpg)/,
-				use: [
-					{
-						loader: 'url-loader',
-						options: {
-							limit: 2500,
-							minetype: 'image/png',
-							outputPath: 'public/dist/'
-						}
-					}
-				]
-			},
+                test: /\.(jpe?g|png|gif|svg|ttf|woff2?|eot)(\?.+)?$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]'
+                        }
+                    }
+                ]
+            },
 			{
-				test: /\.css$/,
-				use: ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: 'css-loader'
-				})
-			},
-			{
-				test: /\.scss$/,
+				test: /\.(scss|css)$/,
 				use: ExtractTextPlugin.extract({
 					fallback: 'style-loader',
 					use: ['css-loader', 'sass-loader']
@@ -51,10 +48,16 @@ module.exports = {
 	},
 	plugins: [
     	new ExtractTextPlugin('styles.css'),
-        // new HtmlWebpackPlugin({
-        //     template: './public/index.html',
-        //     filename: 'index.html'
-        // }),
-		// new webpack.HotModuleReplacementPlugin()
+        new HtmlWebpackPlugin({
+            template: './public/index.html',
+            filename: 'index.html'
+        }),
+		new webpack.HotModuleReplacementPlugin()
 	],
+	node: {
+	  __filename: true,
+	  __dirname: true
+	},
+	target: 'node',
+	externals: [nodeExternals()]
 }

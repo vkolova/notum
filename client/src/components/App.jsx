@@ -5,8 +5,8 @@ import AuthLayout from './layouts/AuthLayout'
 import CleanLayout from './layouts/CleanLayout'
 import MainLayout from './layouts/MainLayout'
 import Logout from './views/Logout'
+import Player from './Player'
 
-//			<Route component={CleanLayout}></Route>
 import '../styles/App.scss'
 
 export default class App extends Component {
@@ -23,6 +23,8 @@ export default class App extends Component {
 				<Route exact path='/u/:username' component={MainLayout}></Route>
 				<Route exact path='/logout' component={Logout}></Route>
 				<Route exact path='/player' component={MainLayout}></Route>
+
+				<Route component={CleanLayout}></Route>
 			</Switch>
 		)
 	}
