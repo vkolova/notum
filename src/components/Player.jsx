@@ -16,6 +16,49 @@ export default class Player extends Component {
         }
     }
 
+    get muted() {
+        return this.video.muted
+    }
+
+    set muted(val) {
+        this.video.muted = val
+    }
+
+    get volume() {
+        return this.video.volume
+    }
+
+    set volume(val) {
+        this.video.volume = val
+    }
+
+    // video width
+    get videoWidth() {
+        return this.video.videoWidth
+    }
+
+    // video height
+    get videoHeight() {
+        return this.video.videoHeight
+    }
+
+    togglePlay = () => {
+        if (this.video.paused) {
+            this.video.play()
+        } else {
+            this.video.pause()
+        }
+    }
+
+    // seek video by time
+    seek = time => this.video.seek(time)
+
+    // jump forward x seconds
+    forward = seconds => this.video.forward(seconds)
+
+    // jump back x seconds
+    replay = seconds => this.video.replay(seconds)
+
     toggleFullScreen = () => {
         this.setState({...this.state, fullscreen: !this.state.fullscreen})
         screenfull.toggle(document.getElementsByClassName('player')[0])
@@ -30,17 +73,15 @@ export default class Player extends Component {
                     name='media'
                     ref={(video) => { this.video = video; }}>
                     <source
-                        src='file:///D:/Downloads/Teen.Wolf.S06E13.HDTV.x264-FLEET[eztv].mkv'
+                        src='file:///D:/va-romitri.mp4'
                         type='video/webm'/>
                 </video>
                 <div className='pl-controls'>
-                    <span id='playpause' data-state='play'>
-                        <i className={`fa fa-pause`} aria-hidden='true'></i>
+                    <span id='playpause' data-state='play' onClick={this.togglePlay}>
+                        <i className={`fa ${this.video.paused ? 'fa-play' : 'fa-pause'}`} aria-hidden='true'></i>
                     </span>
 
-                    <span id='stop' data-state='stop'>
-                        <i className={`fa fa-stop`} aria-hidden='true'></i>
-                    </span>
+
                     <span>{Math.floor(this.video.currentTime/60)}:{Math.floor(this.video.currentTime - Math.floor(this.video.currentTime/60)*60)}</span>
 
                     <Progress current={this.video.currentTime} max={this.video.duration}/>
