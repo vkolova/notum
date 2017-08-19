@@ -1,0 +1,50 @@
+@import '_variables';
+
+.slider {
+    max-width: 300px;
+    position: relative;
+}
+
+.slider-fill {
+    height: 1px;
+    position: absolute;
+    background-color: rgba($white, 0.7);
+}
+
+.volume-slider {
+    // width: 0;
+    width: 70px;
+    transition: width 0.5s;
+
+    // &:hover {
+    //     width: 70px;
+    //     transition: width 0.5s;
+    // }
+}
+
+.progress-slider {
+    width: 250px;
+}
+
+input[type='range'] {
+    width: 100%;
+    height: 1px;
+    top: -2px;
+    position: absolute;
+    -webkit-appearance: none;
+    background-color: rgba($white, 0.3);
+
+     &::-webkit-slider-thumb {
+         -webkit-appearance: none;
+         width: 5px;
+         height: 5px;
+         background-color: $white;
+         border-radius: 50%;
+         cursor: pointer;
+     }
+
+    &:focus {
+        outline: none;
+    }
+
+}
