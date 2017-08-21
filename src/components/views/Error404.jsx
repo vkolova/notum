@@ -32,7 +32,7 @@ class Error404 extends Component {
 	}
 
 	goBack() {
-		window.history.back()
+		window.location.href = '/'
 	}
 
 	render() {

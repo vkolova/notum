@@ -1,10 +1,10 @@
 import React from 'react'
 import { observer } from 'mobx-react'
 
-import '../styles/Progress.scss'
+import '../../styles/Progress.scss'
 
 
-const Progress = observer((props) => (
+const Progress = observer(props => (
     <div className='progress'>
         <div className='progress-bar'></div>
         <div className='progress-val-bar' style={{'width': `${props.store[props.rv]}%`}}></div>

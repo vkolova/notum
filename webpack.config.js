@@ -55,6 +55,7 @@ module.exports = {
 		new webpack.HotModuleReplacementPlugin()
 	],
 	node: {
+        fs: 'empty',
 	  __filename: true,
 	  __dirname: true
 	},

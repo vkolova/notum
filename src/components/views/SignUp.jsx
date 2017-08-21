@@ -82,26 +82,32 @@ export default class SignUp extends Component {
 		return (
 			<div className='auth-page-container'>
 				<form className='auth-form'>
-					<input type='text'
-							name='username'
-							placeholder='Username'
-							autoComplete='off'
-							value={this.state.values.username}
-							onChange={this.handleChange}
-							onBlur={this.validate}></input>
-					<input type='text'
-							name='email'
-							placeholder='Email'
-							autoComplete='off'
-							value={this.state.values.email}
-							onChange={this.handleChange}
-							onBlur={this.validate}></input>
-					<input type='password'
-							name='password'
-							placeholder='Password'
-							value={this.state.values.password}
-							onChange={this.handleChange}
-							onBlur={this.validate}></input>
+					<input
+                        type='text'
+						name='username'
+						placeholder='Username'
+						autoComplete='off'
+						value={this.state.values.username}
+						onChange={this.handleChange}
+						onBlur={this.validate}>
+                    </input>
+					<input
+                        type='text'
+						name='email'
+						placeholder='Email'
+						autoComplete='off'
+						value={this.state.values.email}
+						onChange={this.handleChange}
+						onBlur={this.validate}>
+                    </input>
+					<input
+                        type='password'
+						name='password'
+						placeholder='Password'
+						value={this.state.values.password}
+						onChange={this.handleChange}
+						onBlur={this.validate}>
+                    </input>
 					{
 						this.state.error && <div className='validation-message'>{ this.state.error }</div>
 					}
