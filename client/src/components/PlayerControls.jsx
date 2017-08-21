@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 
-import Icon from './Icon'
+import Icon from './shared/Icon'
 import VolumeRange from './VolumeRange'
 import ProgressRange from './ProgressRange'
 import Time from './Time'

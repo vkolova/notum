@@ -43,6 +43,7 @@ const Player = observer(props => (
             onPlay={videoState.handlePauseToggle}
             onPause={videoState.handlePauseToggle}
             onDurationChange={videoState.handleDurationChange}
+            onDoubleClick={videoState.toggleFullScreen}
             ref={(v) => { video = v; }}>
             <source
                 src='file:///D:/va-romitri.mp4'
