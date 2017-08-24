@@ -1,0 +1,23 @@
+.profile-header {
+    height: 250px;
+}
+
+.profile-avatar {
+    width: 100px;
+    border-radius: 50%;
+}
+
+.profile-avatar-wrapper,
+.profile-user-name {
+    z-index: 1;
+}
+
+.profile-user-info {
+    margin-top: -60px;
+    display: flex;
+    align-items: center;
+
+    div {
+        margin: 0 10px;
+    }
+}

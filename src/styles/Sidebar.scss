@@ -6,7 +6,32 @@
 	background-color: $night-grayish-blue;
 }
 
-.sb-title,
+.sb-profile {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    background-color: rgba($black, 0.3);
+
+    .sb-avatar {
+        width: 35px;
+        border-radius: 50%;
+    }
+
+    .sb-user-info {
+        flex: 1;
+        flex-direction: column;
+    }
+
+    .sb-username {
+        text-transform: uppercase;
+    }
+
+    div {
+        margin: 0 5px;
+    }
+}
+
+
 .sb-item {
     height: 35px;
     padding: 0 30px;
@@ -14,7 +39,12 @@
 }
 
 .sb-title {
+    height: 20px;
+    margin-top: 15px;
+    padding: 0 30px;
+    line-height: 20px;
     color: rgba($white, 0.3);
+    font-size: 12px;
     text-transform: uppercase;
 }
 
