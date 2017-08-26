@@ -18,7 +18,9 @@ function createWindow () {
       height: 900,
       webPreferences: {
           webSecurity: false
-      }
+      },
+    //   frame: false
+    backgroundColor: '#000'
   })
 
   // and load the index.html of the app.

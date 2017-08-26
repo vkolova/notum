@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 
-import '../../styles/Home.scss'
+import '../../styles/Settings.scss'
 
-class Home extends Component {
+
+class Settings extends Component {
 	componentDidMount = () => {
-		window.document.title = 'Home'
+		window.document.title = 'Settings'
 	}
 
 	render = () => (
@@ -14,4 +15,4 @@ class Home extends Component {
 	)
 }
 
-export default Home
+export default Settings
