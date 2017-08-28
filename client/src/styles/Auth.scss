@@ -19,28 +19,22 @@
 		width: $input-width;
 		padding: 15px;
 		margin: 3px;
-		background-color: $night-grayish-blue;
-		opacity: 0.5;
-		color: $light-grey;
+		background-color: rgba($white, 0.07);
+		color: $white;
 		outline: 0;
 		border: 0;
-		border-bottom: 2px solid $sea-blue;
+		border-bottom: 2px solid rgba($primary-color, 0.5);
 		transition: 0.5s;
-		//
-		// &:focus {
-		// 	border-bottom: 2px solid $bright-red;
-		// 	transition: 0.5s;
-		// }
 	}
 }
 
-button {
+.auth-button {
 	height: $input-height;
 	width: $input-width;
 	padding: 5px;
 	margin: 3px;
-	color: $night-blue;
-	background-color: rgba($sea-blue, 0.3);
+	color: $black;
+	background-color: rgba($primary-color, 0.5);
 	cursor: pointer;
 	border: 0;
 
@@ -53,14 +47,14 @@ button {
 	bottom: 0;
 	padding: 15px;
 	position: absolute;
-    color: $light-grey;
+    color: $white;
 	z-index: 1;
 
 	a {
 		font-weight: bold;
 		cursor: pointer;
 		text-decoration: none;
-		color: $light-grey;
+		color: $white;
 	}
 }
 
@@ -68,7 +62,7 @@ button {
 	width: $input-width;
 	padding: 15px;
 	margin: 10px 3px;
-	background-color: $night-grayish-blue;
+	background-color: rgba($white, 0.07);
 	color: $white;
 	border-left: 2px solid rgba($bright-red, 0.5);
 	opacity: 0.7;

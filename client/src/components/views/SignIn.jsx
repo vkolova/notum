@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Particles from 'particlesjs'
 
+import particlesInit from '../shared/particlesjs-init'
+import setWindowTitle from '../shared/window-title'
 import user from '../../utils/user'
 
 export default class SignIn extends Component {
@@ -17,35 +19,9 @@ export default class SignIn extends Component {
 		}
 	}
 
-	componentDidMount() {
-		window.document.title = 'Sign In'
-		Particles.init({
-			selector: '.particlesjs-background',
-			color: '#ffffff',
-			connectParticles: true,
-
-			responsive: [
-				{
-					breakpoint: 768,
-					options: {
-						maxParticles: 70,
-						connectParticles: true
-					}
-				}, {
-					breakpoint: 425,
-					options: {
-						maxParticles: 25,
-						connectParticles: true
-					}
-				}, {
-					breakpoint: 320,
-					options: {
-						maxParticles: 15,
-						connectParticles: true
-					}
-				}
-			]
-		})
+	componentDidMount = () => {
+		setWindowTitle('Sign In')
+		Particles.init(particlesInit)
 	}
 
 	handleChange = event => {
@@ -91,10 +67,11 @@ export default class SignIn extends Component {
 
 				{
 					this.state.error &&
-                    <div className='validation-message'>{ this.state.error }</div>
+                        <div className='validation-message'>
+                            { this.state.error }
+                        </div>
 				}
-
-				<button onClick={this.handleLogin}>Sign In</button>
+				<button className={'auth-button'} onClick={this.handleLogin}>Sign In</button>
 			</form>
 
 			<footer className='auth-footer'>

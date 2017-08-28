@@ -9,11 +9,13 @@ import Home from '../views/Home'
 import Downloads from '../views/Downloads'
 import UserProfile from '../views/UserProfile'
 
+import UserStore from '../../AppStore'
+
 import '../../styles/App.scss'
 
 const MainLayout = props => (
 		<div className='main-layout'>
-			<Sidebar/>
+			<Sidebar store={UserStore}/>
 			<Switch>
 				<Route exact path='/' component={Home}></Route>
 				<Route exact path='/tv' component={Multiple}></Route>
