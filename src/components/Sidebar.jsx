@@ -1,11 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { observer } from 'mobx-react'
 
 import Icon from './shared/Icon'
 
 import '../styles/Sidebar.scss'
 
-const Sidebar = props => (
+const Sidebar = observer(props => (
     <div className='sidebar'>
 
         <div className='sb-profile'>
@@ -17,9 +18,9 @@ const Sidebar = props => (
                 </NavLink>
             </div>
             <div className='sb-user-info'>
-                <span className='sb-username'>vkolova</span>
+                <span className='sb-username'>{ props.store.username }</span>
                 <br/>
-                <span>online</span>
+                <span>{ props.store.online ? 'online' : 'offline' }</span>
             </div>
             <div>
                 <NavLink to='/logout'>
@@ -74,6 +75,6 @@ const Sidebar = props => (
         ><div className='sb-item'><Icon icon={`play`}/> Player</div></NavLink>
 
     </div>
-)
+))
 
 export default Sidebar

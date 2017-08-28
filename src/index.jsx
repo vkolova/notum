@@ -3,11 +3,9 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 
 import './bootstrapper'
+import UserStore from './AppStore'
 import App from './components/App'
 
-import Store from './AppStore'
-
-import registerServiceWorker from './registerServiceWorker'
 import './styles/index.scss'
 
 ReactDOM.render(
@@ -16,4 +14,6 @@ ReactDOM.render(
 	</BrowserRouter>,
 	document.getElementById('root')
 )
-// registerServiceWorker()
+
+window.addEventListener('online',  () => UserStore.online = true)
+window.addEventListener('offline', () => UserStore.online = false)

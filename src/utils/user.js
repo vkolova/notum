@@ -1,13 +1,18 @@
 import axios from 'axios'
 
 import consts from './constants'
-import Store from '../AppStore'
+import UserStore from '../AppStore'
 
 const setLoggedInUser = data => {
-    Store.user.loggedIn = true
-    Store.user.token = data.token
-    Store.user.username = data.username
-    Store.user.joined = data.joined
+    UserStore.loggedIn = true
+    UserStore.token = data.token
+    UserStore.username = data.username
+    UserStore.joined = data.joined
+
+	localStorage.setItem('user.loggedIn', true)
+    localStorage.setItem('user.token', data.token)
+    localStorage.setItem('user.username', data.username)
+    localStorage.setItem('user.joined', data.joined)
 }
 
 const signIn = ({email, password}) =>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Particles from 'particlesjs'
 
 import user from '../../utils/user'
+import particlesInit from '../shared/particlesjs-init'
 
 export default class SignUp extends Component {
 	constructor(props) {
@@ -13,40 +14,14 @@ export default class SignUp extends Component {
 				email: '',
 				password: ''
 			},
-			error: ''
+			error: '',
+            validationError: ''
 		}
 	}
 
-	componentDidMount() {
+	componentDidMount = () => {
 		window.document.title = 'Sign Up'
-
-		Particles.init({
-			selector: '.particlesjs-background',
-			color: '#ffffff',
-			connectParticles: true,
-
-			responsive: [
-				{
-					breakpoint: 768,
-					options: {
-						maxParticles: 70,
-						connectParticles: true
-					}
-				}, {
-					breakpoint: 425,
-					options: {
-						maxParticles: 25,
-						connectParticles: true
-					}
-				}, {
-					breakpoint: 320,
-					options: {
-						maxParticles: 15,
-						connectParticles: true
-					}
-				}
-			]
-		})
+		Particles.init(particlesInit)
 	}
 
 	handleChange = event => {
@@ -58,13 +33,13 @@ export default class SignUp extends Component {
 	validate = event => {
 		if (event.target.name === 'password') {
 			event.target.value.length < 6
-    			? this.setState({ error: 'Password must be at least 6 characters.' })
-    			: this.setState({ error: '' })
+    			? this.setState({ validationError: 'Password must be at least 6 characters. But virgin blood and unicorn dust are welcome, too!' })
+    			: this.setState({ validationError: '' })
 		} else if (event.target.name === 'email') {
 			/* eslint-disable */
 			/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(event.target.value)
-    			? this.setState({ error: '' })
-    			: this.setState({ error: 'Invalid email.' })
+    			? this.setState({ validationError: '' })
+    			: this.setState({ validationError: 'C\'me on, babe. Enter a valid email.' })
 			/* eslint-enable */
 		}
 	}
@@ -111,9 +86,20 @@ export default class SignUp extends Component {
                 </input>
 				{
 					this.state.error &&
-                    <div className='validation-message'>{ this.state.error }</div>
+                        <div className='validation-message'>
+                            { this.state.error }
+                        </div>
+                }
+                {
+                    this.state.validationError &&
+                        <div className='validation-message'>
+                            { this.state.validationError }
+                        </div>
 				}
-				<button onClick={this.handleRegister}>Register</button>
+				<button
+                    className={`auth-button${this.state.validationError ? ' disabled' : ''}`}
+                    onClick={!this.state.validationError ? this.handleRegister : null}
+                >Register</button>
 			</form>
 
 			<footer className='auth-footer'>

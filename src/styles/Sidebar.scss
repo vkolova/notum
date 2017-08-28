@@ -2,8 +2,7 @@
 
 .sidebar {
 	width: $sidebar-width;
-    color: $dirty-white;
-	background-color: $night-grayish-blue;
+    color: rgba($white, 0.7);
 }
 
 .sb-profile {
@@ -63,7 +62,7 @@
 }
 
 .sb-link-active {
-    color: $white;
+    color: $primary-color;
 }
 
 .sb-hr {

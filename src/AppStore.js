@@ -1,9 +1,15 @@
 import { observable } from 'mobx'
 
-class AppStore {
-    @observable user = {}
-}
+// class UserStorage {
+//     user = observable({})
+// }
 
-const Store = new AppStore
+const UserStore = window.store = observable({
+    username: localStorage.getItem('user.username'),
+    loggedIn : localStorage.getItem('user.loggedIn'),
+    joined: localStorage.getItem('user.joined'),
+    token: localStorage.getItem('user.token'),
+    online: true
+})
 
-export default Store
+export default UserStore

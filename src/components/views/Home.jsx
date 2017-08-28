@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 
+import setWindowTitle from '../shared/window-title'
+
 import '../../styles/Home.scss'
 
 class Home extends Component {
-	componentDidMount = () => {
-		window.document.title = 'Home'
-	}
+	componentDidMount = () => setWindowTitle('Home')
 
 	render = () => (
 		<div className='view-wrapper'>

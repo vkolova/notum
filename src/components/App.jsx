@@ -15,7 +15,7 @@ export default class App extends Component {
 			<Switch>
 				<Route exact path='/'
 					component={
-						localStorage.getItem('token') ? MainLayout : AuthLayout
+						localStorage.getItem('user.loggedIn') ? MainLayout : AuthLayout
 					}></Route>
 				<Route exact path='/sign-up' component={AuthLayout}></Route>
 				<Route exact path='/tv' component={MainLayout}></Route>
