@@ -4,7 +4,7 @@ import Particles from 'particlesjs'
 
 import particlesInit from '../shared/particlesjs-init'
 import setWindowTitle from '../shared/window-title'
-import user from '../../utils/user'
+import user from '../../services/user'
 
 export default class SignIn extends Component {
 	constructor(props) {

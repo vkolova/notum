@@ -5,7 +5,7 @@ import { observer } from 'mobx-react'
 import Icon from './shared/Icon'
 import Progress from './shared/Progress'
 
-import { prettyBytes } from '../utils'
+import { prettyBytes } from '../utils/byte-utils'
 
 import '../styles/Downloads.scss'
 

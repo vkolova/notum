@@ -50,16 +50,25 @@ const Sidebar = observer(props => (
             className='sb-link'
             activeClassName='sb-link-active'
         ><div className='sb-item'><Icon icon={`television`}/> New Releases</div></NavLink>
+
+        <NavLink
+            to='/tv'
+            className='sb-link'
+            activeClassName='sb-link-active'
+        ><div className='sb-item'><Icon icon={`fire`}/> Popular</div></NavLink>
+
         <NavLink
             to='/watch-later'
             className='sb-link'
             activeClassName='sb-link-active'
-        ><div className='sb-item'><Icon icon={`clock-o`}/> Watch Later</div></NavLink>
+        ><div className='sb-item'><Icon icon={`clock-o`}/> Catch Up</div></NavLink>
+
         <NavLink
             to='/downloads'
             className='sb-link'
             activeClassName='sb-link-active'
         ><div className='sb-item'><Icon icon={`download`}/> Downloads</div></NavLink>
+
         <NavLink
             to='/logout'
             className='sb-link'
