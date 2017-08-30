@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Particles from 'particlesjs'
 
-import user from '../../utils/user'
+import user from '../../services/user'
 import particlesInit from '../shared/particlesjs-init'
 
 export default class SignUp extends Component {
@@ -39,7 +39,7 @@ export default class SignUp extends Component {
 			/* eslint-disable */
 			/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(event.target.value)
     			? this.setState({ validationError: '' })
-    			: this.setState({ validationError: 'C\'me on, babe. Enter a valid email.' })
+    			: this.setState({ validationError: 'C\'mon, babe. Enter a valid email.' })
 			/* eslint-enable */
 		}
 	}

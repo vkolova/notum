@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import consts from './constants'
+import consts from '../constants'
 import UserStore from '../AppStore'
 
 const setLoggedInUser = data => {

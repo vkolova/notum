@@ -4,7 +4,7 @@ import { observer } from 'mobx-react'
 
 import { client, clientStore } from '../../bootstrapper'
 import Torrent from '../Torrent'
-import { prettyBytes } from '../../utils'
+import { prettyBytes } from '../../utils/byte-utils'
 
 import '../../styles/Downloads.scss'
 
