@@ -22,7 +22,7 @@ class Show extends Component {
 
 	render() {
 		return (
-			<div className='show'>
+			<div className='view-wrapper show'>
 				<div className='info-card' style={ {
 						backgroundImage: `url(https://image.tmdb.org/t/p/w1400_and_h450_bestv2${this.state.show.backdrop_path})`
 					} }>

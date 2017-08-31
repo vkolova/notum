@@ -1,8 +1,10 @@
 @import '_variables';
 
+$show-card-height: 270px;
+
 .show-card {
-    height: 274px;
-    max-width: 450px;
+    height: $show-card-height;
+    max-width: 470px;
     margin: 5px;
     display: flex;
     border: 1px solid rgba($black, 0.05);
@@ -10,7 +12,9 @@
     background-color: $white;
 
     img {
-        max-height: 273px;
+        max-height: $show-card-height - 1;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
     }
 
     .info {
@@ -21,6 +25,10 @@
         margin: 5px 0;
         color: $black;
         font-size: 16px;
+    }
+
+    .year {
+        color: rgba($black, 0.7);
     }
 }
 
