@@ -1,5 +1,25 @@
+@import '_variables';
+
 .shows-container {
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    will-change: overflow;
+    position: absolute;
+    overflow: auto;
+}
+
+
+.pagination {
+    height: 50px;
+    width: 100%;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
+        color: rgba($black, 0.7);
+    }
 }

@@ -40,36 +40,42 @@ const Sidebar = observer(props => (
         ><div className='sb-item'><Icon icon={`home`}/> Home</div></NavLink>
 
         <NavLink
+            exact
             to='/favorites'
             className='sb-link'
             activeClassName='sb-link-active'
         ><div className='sb-item'><Icon icon={`heart`}/> Favorites</div></NavLink>
 
         <NavLink
+            exact
             to='/new'
             className='sb-link'
             activeClassName='sb-link-active'
         ><div className='sb-item'><Icon icon={`television`}/> New Releases</div></NavLink>
 
         <NavLink
+            exact
             to='/tv'
             className='sb-link'
             activeClassName='sb-link-active'
         ><div className='sb-item'><Icon icon={`fire`}/> Popular</div></NavLink>
 
         <NavLink
+            exact
             to='/watch-later'
             className='sb-link'
             activeClassName='sb-link-active'
         ><div className='sb-item'><Icon icon={`clock-o`}/> Catch Up</div></NavLink>
 
         <NavLink
+            exact
             to='/downloads'
             className='sb-link'
             activeClassName='sb-link-active'
         ><div className='sb-item'><Icon icon={`download`}/> Downloads</div></NavLink>
 
         <NavLink
+            exact
             to='/logout'
             className='sb-link'
             activeClassName='sb-link-active'
@@ -78,6 +84,7 @@ const Sidebar = observer(props => (
         <div className='sb-hr'/>
 
         <NavLink
+            exact
             to='/player'
             className='sb-link'
             activeClassName='sb-link-active'

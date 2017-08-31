@@ -2,24 +2,25 @@
 @import '~font-awesome/css/font-awesome.css';
 
 .main-layout {
-    display: flex;
     flex: 1;
+    display: flex;
 }
 
 .view-wrapper {
-    display: flex;
     flex: 1;
+    display: flex;
     flex-direction: column;
-    background-color: $white;
+    background-color: rgba($white, 0.977);
+    position: relative;
 }
 
 .particlesjs-background {
+    top: 0;
+    left: 0;
 	position: absolute;
 	display: block;
-	top: 0;
-	left: 0;
-	z-index: 0;
 	opacity: 0.2;
+    z-index: 0;
 }
 
 

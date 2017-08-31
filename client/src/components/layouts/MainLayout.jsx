@@ -4,7 +4,6 @@ import { Route, Switch } from 'react-router-dom'
 import Sidebar from '../Sidebar'
 import Show from '../Show'
 import Player from '../Player'
-import Multiple from '../Multiple'
 import Home from '../views/Home'
 import Popular from '../views/Popular'
 import Downloads from '../views/Downloads'
@@ -20,7 +19,7 @@ const MainLayout = props => (
 			<Switch>
 				<Route exact path='/' component={Home}></Route>
 				<Route exact path='/tv' component={Popular}></Route>
-                <Route exact path='/new' component={Multiple}></Route>
+                <Route exact path='/new' component={Popular}></Route>
 				<Route exact path='/tv/:id' component={Show}></Route>
 				<Route exact path='/u/:username' component={UserProfile}></Route>
 				<Route exact path='/player' component={Player}></Route>

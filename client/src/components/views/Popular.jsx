@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import queryString from 'query-string'
 
+import Icon from '../shared/Icon'
 import ShowCard from '../ShowCard'
 import setWindowTitle from '../shared/window-title'
 import consts from '../../constants'
@@ -13,7 +14,9 @@ export default class Popular extends Component {
 	constructor (props) {
 		super()
 		this.queries = queryString.parse(props.location.search)
-		this.state = { results: [], page: this.queries.page * 1 || 1 }
+		this.state = {
+            data: {}
+        }
 	}
 
     componentDidMount = () => setWindowTitle('Popular TV Shows')
@@ -25,27 +28,35 @@ export default class Popular extends Component {
                 language: 'en-US'
             }
         })
-
-        await this.setState({ ...this.setState.page, results: response.data.results })
+        await console.log(response.data.results)
+        await this.setState({ ...this.setState.page, data: response.data })
     }
 
     render = () => (
         <div className='view-wrapper'>
             <div className='shows-container'>
                 {
-                    this.state.results &&
-                        this.state.results.map(s =>
+                    this.state.data.results &&
+                        this.state.data.results.map(s =>
                             <ShowCard
                                 key={s.id.toString()}
-                                id={s.id}
-                                name={s.name}
-                                poster={s.poster_path}
-                                overview={s.overview}
+                                data={s}
                             />
                         )
                 }
+                <div className='pagination'>
+                    {
+                        this.state.data.page > 1
+                        ? <Link to={`/tv?page=${this.state.data.page * 1 - 1}`}>
+                            <Icon icon='chevron-left'/>
+                         </Link>
+                        : null
+                    }
+                    <Link to={`/tv?page=${this.state.data.page * 1 + 1}`}>
+                        <Icon icon='chevron-right'/>
+                    </Link>
             </div>
-
+            </div>
         </div>
     )
 }
