@@ -24,6 +24,7 @@ export default class App extends Component {
 				<Route exact path='/u/:username' component={MainLayout}></Route>
 				<Route exact path='/logout' component={Logout}></Route>
 				<Route exact path='/player' component={MainLayout}></Route>
+                <Route exact path='/settings' component={MainLayout}></Route>
                 <Route exact path='/downloads' component={MainLayout}></Route>
 
 				<Route component={CleanLayout}></Route>

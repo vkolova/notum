@@ -14,7 +14,7 @@ const Sidebar = observer(props => (
                 <NavLink to='/u/vkolova'>
                     <img
                         className='sb-avatar'
-                        src='https://scontent.fsof2-1.fna.fbcdn.net/v/t1.0-9/18556132_1508619549190418_7013986089638763200_n.jpg?oh=9019e06c3f53c90e22280b43b6b37f1f&oe=5A3288ED' />
+                        src={ props.store.avatar } />
                 </NavLink>
             </div>
             <div className='sb-user-info'>
@@ -73,6 +73,13 @@ const Sidebar = observer(props => (
             className='sb-link'
             activeClassName='sb-link-active'
         ><div className='sb-item'><Icon icon={`download`}/> Downloads</div></NavLink>
+
+        <NavLink
+            exact
+            to='/settings'
+            className='sb-link'
+            activeClassName='sb-link-active'
+        ><div className='sb-item'><Icon icon={`cog`}/> Settings</div></NavLink>
 
         <NavLink
             exact
