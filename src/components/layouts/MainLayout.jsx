@@ -6,6 +6,7 @@ import Show from '../Show'
 import Player from '../Player'
 import Home from '../views/Home'
 import Popular from '../views/Popular'
+import Settings from '../views/Settings'
 import Downloads from '../views/Downloads'
 import UserProfile from '../views/UserProfile'
 
@@ -23,6 +24,7 @@ const MainLayout = props => (
 				<Route exact path='/tv/:id' component={Show}></Route>
 				<Route exact path='/u/:username' component={UserProfile}></Route>
 				<Route exact path='/player' component={Player}></Route>
+                <Route exact path='/settings' render={() => <Settings store={UserStore}/>}></Route>
                 <Route exact path='/downloads' component={Downloads}></Route>
 			</Switch>
 		</div>
