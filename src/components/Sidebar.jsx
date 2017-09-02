@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { observer } from 'mobx-react'
 
 import Icon from './shared/Icon'
+import Avatar from './shared/Avatar'
 
 import '../styles/Sidebar.scss'
 
@@ -12,15 +13,13 @@ const Sidebar = observer(props => (
         <div className='sb-profile'>
             <div>
                 <NavLink to='/u/vkolova'>
-                    <img
-                        className='sb-avatar'
-                        src={ props.store.avatar } />
+                    <Avatar store={ props.store }/>
                 </NavLink>
             </div>
             <div className='sb-user-info'>
                 <span className='sb-username'>{ props.store.username }</span>
                 <br/>
-                <span>{ props.store.online ? 'online' : 'offline' }</span>
+                <span className='online'>{ props.store.online ? 'online' : 'offline' }</span>
             </div>
             <div>
                 <NavLink to='/logout'>
