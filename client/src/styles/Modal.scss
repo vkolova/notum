@@ -1,0 +1,13 @@
+@import '_variables';
+
+
+.modal {
+    width: 250px;
+    height: 100px;
+    margin: auto;
+    position: absolute;
+
+    background-color: $white;
+    border: 1px solid rgba($black, 0.5);
+    z-index: 10;
+}
