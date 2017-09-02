@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 
 import './bootstrapper'
-import UserStore from './AppStore'
+import UserStore from './stores/user'
 import App from './components/App'
 
 import './styles/index.scss'

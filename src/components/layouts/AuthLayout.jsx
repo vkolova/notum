@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 import SignIn from '../views/SignIn'
 import SignUp from '../views/SignUp'
 
-import Store from '../../AppStore'
+import UserStore from '../../stores/user'
 
 import '../../styles/Auth.scss'
 

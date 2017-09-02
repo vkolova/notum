@@ -11,13 +11,14 @@ import Downloads from '../views/Downloads'
 import UserProfile from '../views/UserProfile'
 import Modal from '../shared/Modal'
 
-import UserStore from '../../AppStore'
+import UserStore from '../../stores/user'
+import ModalStore from '../../stores/modal'
 
 import '../../styles/App.scss'
 
 const MainLayout = props => (
 		<div className='main-layout'>
-            <Modal show={false}/>
+            <Modal store={ModalStore}/>
 			<Sidebar store={UserStore}/>
 			<Switch>
 				<Route exact path='/' component={Home}></Route>
