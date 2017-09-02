@@ -2,7 +2,6 @@ const { observable } = require('mobx')
 const WebTorrent = require('webtorrent')
 
 
-
 const client = window.client =  new WebTorrent()
 
 const clientStore = window.store = observable({
@@ -11,7 +10,6 @@ const clientStore = window.store = observable({
 
 client.on('torrent', torrent => clientStore.torrents.push(torrent))
 client.on('error', err => console.log(err))
-
 
 
 const exporting = {
