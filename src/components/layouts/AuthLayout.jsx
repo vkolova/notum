@@ -13,7 +13,7 @@ export default class AuthLayout extends Component {
 		return (
 			<div>
 				<Switch>
-					<Route exact path='/' component={SignIn} store={Store}></Route>
+					<Route exact path='/' component={SignIn} store={UserStore}></Route>
 					<Route exact path='/sign-up' component={SignUp}></Route>
 				</Switch>
 			</div>

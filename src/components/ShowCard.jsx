@@ -1,11 +1,22 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-
+import Modal from './shared/Modal'
 import Icon from './shared/Icon'
+
 import '../styles/ShowCard.scss'
 
 export default class ShowCard extends Component {
+  subscribe = () => {
+    const data = {
+      id: this.props.data.id,
+      name: this.props.data.name,
+      poster: `https://image.tmdb.org/t/p/w185${this.props.data.poster_path}`,
+      overview: this.props.data.overview
+    }
+    Modal.toggle('subscribe', data)
+  }
+
 	render = () => (
 		<div className='show-card'>
 			<div>
@@ -28,8 +39,8 @@ export default class ShowCard extends Component {
 
 				<p>
                     {
-                        this.props.data.overview.length > 250
-                            ? `${this.props.data.overview.substring(0, 250)}...`
+                        this.props.data.overview.length > 350
+                            ? `${this.props.data.overview.substring(0, 350)}...`
                             : this.props.data.overview
                     }
                 </p>

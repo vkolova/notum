@@ -25,6 +25,11 @@
     font-size: 16px;
 }
 
+.modal-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
 
 .modal-overlay {
     top: 0;

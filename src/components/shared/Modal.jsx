@@ -2,8 +2,13 @@ import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 
 import Icon from './Icon'
+import Subscribe from './modals/Subscribe'
 
 import '../../styles/Modal.scss'
+
+const modals = {
+    subscribe: data => <Subscribe show={data}/>
+}
 
 @observer
 class Modal extends Component {
@@ -16,16 +21,7 @@ class Modal extends Component {
 
         return (
             <div className='modal-overlay'>
-                <div className='modal-frame'>
-                    <div className='modal-header'>
-                        <span className='modal-title'>Title</span>
-                        <span className='modal-close' onClick={this.close}>
-                            <Icon icon='times'/>
-                        </span>
-                    </div>
-                    <div className='hr'></div>
-                    { 'content' }
-                </div>
+                { modals[this.props.store.modal](this.props.store.data) }
             </div>
         )
     }
