@@ -1,8 +1,8 @@
-const webpack = require('webpack');
+const webpack = require('webpack')
 const path = require('path')
-const nodeExternals = require('webpack-node-externals');
+const nodeExternals = require('webpack-node-externals')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 
 module.exports = {
@@ -15,7 +15,7 @@ module.exports = {
 		contentBase: path.join(__dirname, 'public'),
 		compress: true,
 		port: 3000,
-        historyApiFallback: true
+		historyApiFallback: true
 	},
 	module: {
 		rules: [
@@ -25,16 +25,16 @@ module.exports = {
 				loader: 'babel-loader'
 			},
 			{
-                test: /\.(jpe?g|png|gif|svg|ttf|woff2?|eot)(\?.+)?$/i,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[name].[ext]'
-                        }
-                    }
-                ]
-            },
+				test: /\.(jpe?g|png|gif|svg|ttf|woff2?|eot)(\?.+)?$/i,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: '[name].[ext]'
+						}
+					}
+				]
+			},
 			{
 				test: /\.(scss|css)$/,
 				use: ExtractTextPlugin.extract({
@@ -49,14 +49,14 @@ module.exports = {
 	},
 	plugins: [
     	new ExtractTextPlugin('styles.css'),
-        new HtmlWebpackPlugin({
-            template: './public/index.html',
-            filename: 'index.html'
-        }),
+		new HtmlWebpackPlugin({
+			template: './public/index.html',
+			filename: 'index.html'
+		}),
 		new webpack.HotModuleReplacementPlugin()
 	],
 	node: {
-        fs: 'empty',
+		fs: 'empty',
 	  __filename: true,
 	  __dirname: true
 	},
