@@ -17,6 +17,7 @@ module.exports = {
 		port: 3000,
 		historyApiFallback: true
 	},
+	devtool: 'source-map',
 	module: {
 		rules: [
 			{
@@ -45,7 +46,10 @@ module.exports = {
 		],
 	},
 	resolve: {
-		extensions: ['.js', '.jsx', '.json']
+		extensions: ['.js', '.jsx', '.json'],
+		alias: {
+			'~~': path.resolve(__dirname, 'src')
+		}
 	},
 	plugins: [
     	new ExtractTextPlugin('styles.css'),

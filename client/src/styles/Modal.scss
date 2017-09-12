@@ -15,14 +15,18 @@
 }
 
 .modal-header {
-    height: 35px;
-    padding: 0 20px;
+	height: 35px;
+	padding: 0 20px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     font-size: 16px;
+
+	.modal-close {
+		cursor: pointer;
+	}
 }
 
 .modal-content {
@@ -45,3 +49,82 @@
 
     z-index: 1;
 }
+
+.select {
+	width: 55px;
+	height: 25px;
+	margin: 0 3px;
+}
+
+.checkbox-row {
+    margin: 5px 0;
+	display: flex;
+	align-items: center;
+}
+
+.inactive {
+	position: relative;
+	z-index: 0;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba($white, 0.3);
+		z-index: 1;
+	}
+}
+
+// input[type=checkbox] {
+// 	visibility: hidden;
+// }
+
+// .checkboxFive {
+// 	width: 25px;
+// 	margin: 20px 100px;
+// 	position: relative;
+// }
+//
+// .checkboxFive label {
+// 	cursor: pointer;
+// 	position: absolute;
+// 	width: 25px;
+// 	height: 25px;
+// 	top: 0;
+//   	left: 0;
+// 	background: #eee;
+// 	border:1px solid #ddd;
+// }
+//
+// .checkboxFive label:after {
+// 	opacity: 0.2;
+// 	content: '';
+// 	position: absolute;
+// 	width: 9px;
+// 	height: 5px;
+// 	background: transparent;
+// 	top: 6px;
+// 	left: 7px;
+// 	border: 3px solid #333;
+// 	border-top: none;
+// 	border-right: none;
+//
+// 	transform: rotate(-45deg);
+// }
+//
+// /**
+//  * Create the hover event of the tick
+//  */
+// .checkboxFive label:hover::after {
+// 	opacity: 0.5;
+// }
+//
+// /**
+//  * Create the checkbox state for the tick
+//  */
+// .checkboxFive input[type=checkbox]:checked + label:after {
+// 	opacity: 1;
+// }
