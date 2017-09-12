@@ -1,12 +1,12 @@
 @import '_variables';
 
 .download {
-    height: 35px;
-    margin-top: -1px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    border-bottom: 1px solid rgba($black, 0.3);
-    border-top: 1px solid rgba($black, 0.3);
+	height: 35px;
+	margin-top: -1px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	border-bottom: 1px solid rgba($black, 0.3);
+	border-top: 1px solid rgba($black, 0.3);
 }

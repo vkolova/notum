@@ -12,12 +12,12 @@ const modals = {
 
 @observer
 class Modal extends Component {
-    close = () => this.props.store.show = false
+    close = () => this.props.store.toggle()
 
     render = () => {
-        if (!this.props.store.show) {
-          return null
-        }
+		if (!this.props.store.show) {
+			return null
+		}
 
         return (
             <div className='modal-overlay'>

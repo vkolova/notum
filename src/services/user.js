@@ -10,6 +10,7 @@ const setLoggedInUser = data => {
 	UserStore.joined = data.joined
 	UserStore.email = data.email
 	UserStore.avatar = data.avatar
+	console.log(data, data.avatar);
 	UserStore.admin = data.admin
 
 	localStorage.setItem('user.loggedIn', true)

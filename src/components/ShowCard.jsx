@@ -1,21 +1,22 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import Modal from './shared/Modal'
+import ModalStore from '../stores/modal'
 import Icon from './shared/Icon'
 
 import '../styles/ShowCard.scss'
 
 export default class ShowCard extends Component {
-  subscribe = () => {
-    const data = {
-      id: this.props.data.id,
-      name: this.props.data.name,
-      poster: `https://image.tmdb.org/t/p/w185${this.props.data.poster_path}`,
-      overview: this.props.data.overview
-    }
-    Modal.toggle('subscribe', data)
-  }
+	openSubscribe = () => {
+		// const data = {
+		// 	id: this.props.data.id,
+		// 	name: this.props.data.name,
+		// 	poster: `https://image.tmdb.org/t/p/w185${this.props.data.poster_path}`,
+		// 	overview: this.props.data.overview,
+		// 	data: this.props.data
+		// }
+		ModalStore.toggle('subscribe', this.props.data)
+	}
 
 	render = () => (
 		<div className='show-card'>
@@ -46,6 +47,11 @@ export default class ShowCard extends Component {
                 </p>
 
                 <div className='hr'></div>
+				<span onClick={this.openSubscribe}>
+					<Icon icon='plus'></Icon>
+				</span>
+
+				<div className='hr'></div>
 
                 <Link to={`/tv/${this.props.data.id}`}>More info</Link>
 			</div>
