@@ -10,8 +10,8 @@ class WatchTimeChart extends Component {
                 labels: this.props.labels,
                 datasets: [{
                     data: this.props.data,
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255,99,132,1)',
+                    backgroundColor: 'rgba(132, 250, 176, 0.2)',
+                    borderColor: 'rgba(132, 250, 176, 1)',
                     borderWidth: 1
                 }]
             },
