@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-import UserStore from '../stores/user'
-import consts from '../constants'
+import UserStore from '~~/stores/user'
+import consts from '~~/constants'
 
 const setLoggedInUser = data => {
 	UserStore.loggedIn = true
@@ -10,7 +10,6 @@ const setLoggedInUser = data => {
 	UserStore.joined = data.joined
 	UserStore.email = data.email
 	UserStore.avatar = data.avatar
-	console.log(data, data.avatar);
 	UserStore.admin = data.admin
 
 	localStorage.setItem('user.loggedIn', true)
@@ -36,8 +35,8 @@ const signIn = ({email, password}) =>
 const signUp = ({email, username, password}) =>
 	axios.post(`${consts.SERVER_URL}/sign-up`, {email, username, password})
 
-const updateProfile = ({email, newEmail, avatar}) =>
-	axios.put(`${consts.SERVER_URL}/profile`, {email, newEmail, avatar, token: UserStore.token})
+const updateProfile = ({email, avatar}) =>
+	axios.put(`${consts.SERVER_URL}/profile`, {email, avatar, token: UserStore.token})
 
 export default {
 	signIn,

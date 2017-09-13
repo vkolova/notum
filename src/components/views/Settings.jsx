@@ -18,7 +18,7 @@ export default class Settings extends Component {
     saveProfileChanges = event => {
         event.preventDefault()
 
-        user.updateProfile({ ...this.state, email: this.props.store.email })
+        user.updateProfile({ ...this.state })
             .then(res => {
                 user.updateUserStore(res.data)
             })
@@ -65,7 +65,7 @@ export default class Settings extends Component {
                         <label>Email</label>
                         <input
                             type='email'
-                            name='newEmail'
+                            name='email'
                             onChange={ this.updateField }
                             defaultValue={ this.props.store.email }
                         />
