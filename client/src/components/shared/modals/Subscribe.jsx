@@ -1,15 +1,23 @@
 import React, { Component } from 'React'
 import axios from 'axios'
 
-import Icon from '../Icon'
-import ModalStore from '../../../stores/modal'
+import ModalStore from '~~/stores/modal'
 import consts from '~~/constants'
+import api from '~~/services/subscription'
+
+import Icon from '../Icon'
 
 export default class Subscribe extends Component {
 	constructor (props) {
 		super()
 		this.data = props.show
-		this.state = { show: {}, seasonNumber: 0, season: {}, notWatched: false }
+		this.state = {
+			show: {},
+			seasonNumber: 0,
+			episodeNumber: 0,
+			season: {},
+			notWatched: false
+		}
 	}
 
 	async componentWillMount() {
@@ -21,21 +29,28 @@ export default class Subscribe extends Component {
 		})
 
 		await this.setState({
+			...this.state,
 			show: response.data,
-			seasonNumber: response.data.number_of_seasons,
-			season: response.data.seasons[response.data.number_of_seasons]
+			episodeNumber: 1,
+			seasonNumber: 1,
+			season: response.data.seasons[0]
 		})
-		await console.log(this.state)
 	}
 
     close = () => ModalStore.toggle()
 
 	seasonChange = event => {
-		console.log(event.target.value)
 		this.setState({
 			...this.state,
 			seasonNumber: event.target.value,
 			season: this.state.show.seasons[event.target.value]
+		});
+	}
+
+	episodeChange = event => {
+		this.setState({
+			...this.state,
+			episodeNumber: event.target.value
 		});
 	}
 
@@ -47,6 +62,14 @@ export default class Subscribe extends Component {
 		});
 	}
 
+	subscribe = () =>
+		api.subscribe({
+			notWatched: this.state.notWatched,
+			season: this.state.seasonNumber,
+			episode: this.state.episodeNumber,
+			show: this.data.id
+		}).then((res, err) => ModalStore.toggle())
+
     render = () => (
         <div className='modal-frame'>
             <div className='modal-header'>
@@ -57,13 +80,19 @@ export default class Subscribe extends Component {
                     <Icon icon='times'/>
                 </span>
             </div>
+
             <div className='hr'></div>
+
             <div className='modal-content'>
-				<div  className={this.state.notWatched ? 'inactive' : ''}>
+				<div className={this.state.notWatched ? 'inactive' : ''}>
 					<div>{ 'What\'s the last episode you watched?' }</div>
 					<label>
 						Season:
-						<select className='select' defaultValue={this.state.season} onChange={this.seasonChange}>
+						<select
+							className='select'
+							defaultValue={this.state.seasonNumber}
+							onChange={this.seasonChange}
+						>
 							{
 								this.state.show.seasons &&
 								this.state.show.seasons.map(s =>
@@ -75,12 +104,16 @@ export default class Subscribe extends Component {
 
 					<label>
 						Episode:
-						<select className='select'>
+						<select
+							className='select'
+							defaultValue={this.state.episodeNumber}
+							onChange={this.episodeChange}
+						>
 							{
 								this.state.seasonNumber !== 0 &&
-								[...Array(this.state.season.episode_count*1-1).keys()].map((e, i) =>
-								<option value={i+1} key={i+1}>{i+1}</option>)
-								}
+									[...Array(this.state.season.episode_count*1-1).keys()].map((e, i) =>
+									<option value={i+1} key={i+1}>{i+1}</option>)
+									}
 							</select>
 					</label>
 				</div>
@@ -90,13 +123,8 @@ export default class Subscribe extends Component {
 					<label>{ "I haven't watched anything yet." }</label>
 				</div>
 
-				<div className="checkboxFive">
-					<input type="checkbox" value="1" id="checkboxFiveInput" name=""/>
-					<label htmlFor="checkboxFiveInput"></label>
-				</div>
-
                 <div className='btn-row'>
-                    <div className='primary-btn'>Save</div>
+                    <div className='primary-btn' onClick={this.subscribe}>Save</div>
                 </div>
             </div>
         </div>

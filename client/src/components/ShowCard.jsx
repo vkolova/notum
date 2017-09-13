@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import ModalStore from '../stores/modal'
+import ModalStore from '~~/stores/modal'
 import Icon from './shared/Icon'
 
-import '../styles/ShowCard.scss'
+import '~~/styles/ShowCard.scss'
 
 export default class ShowCard extends Component {
 	openSubscribe = () => {

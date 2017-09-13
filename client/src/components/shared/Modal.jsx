@@ -4,7 +4,7 @@ import { observer } from 'mobx-react'
 import Icon from './Icon'
 import Subscribe from './modals/Subscribe'
 
-import '../../styles/Modal.scss'
+import '~~/styles/Modal.scss'
 
 const modals = {
     subscribe: data => <Subscribe show={data}/>
