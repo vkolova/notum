@@ -1,6 +1,8 @@
 const { observable } = require('mobx')
 const WebTorrent = require('webtorrent')
+const axios = require('axios')
 
+const consts = require('./constants').default
 
 const client = window.client =  new WebTorrent()
 
@@ -11,6 +13,11 @@ const clientStore = window.store = observable({
 client.on('torrent', torrent => clientStore.torrents.push(torrent))
 client.on('error', err => console.log(err))
 
+const task = setInterval(() =>
+	axios.get(`${consts.SERVER_URL}/update`)
+		.then((res, err) =>
+			res.data && client.add(res.data[0].link, { path: 'D:\/Downloads' }, t => {})
+		), 60000 * 30)
 
 const exporting = {
 	client,
@@ -18,19 +25,3 @@ const exporting = {
 }
 
 module.exports = exporting
-
-// import io from 'socket.io-client'
-//
-// const socket = io('https://localhost/')
-//
-// socket.on('connect', s => {
-//     console.log('connected')
-//     console.log(socket.id)
-// })
-//
-// socket.on('message', m => console.log(m))
-//
-// socket.on('disconnect', () => {
-//     console.log('disconnected')
-//     socket.open()
-// })
