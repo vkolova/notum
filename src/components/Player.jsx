@@ -46,7 +46,7 @@ const Player = observer(props => (
             onDoubleClick={videoState.toggleFullScreen}
             ref={(v) => { video = v; }}>
             <source
-                src='file:///D:/va-romitri.mp4'
+                src='file:///D:\Downloads\Vampire.Academy.2014.480p.BRRip.XviD.AC3-BS5'
                 type='video/webm'
             />
         </video>

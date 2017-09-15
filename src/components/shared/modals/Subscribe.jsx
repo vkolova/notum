@@ -67,7 +67,8 @@ export default class Subscribe extends Component {
 			notWatched: this.state.notWatched,
 			season: this.state.seasonNumber,
 			episode: this.state.episodeNumber,
-			show: this.data.id
+			showId: this.data.id,
+			showName: this.data.name
 		}).then((res, err) => ModalStore.toggle())
 
     render = () => (
