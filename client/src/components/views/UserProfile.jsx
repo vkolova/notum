@@ -1,11 +1,24 @@
 import React, { Component } from 'react'
 import moment from 'moment'
 
+import setWindowTitle from '../shared/window-title'
+import userAPI from '~~/services/user'
 import WatchTimeChart from '../WatchTimeChart'
 
 import '../../styles/UserProfile.scss'
 
 class UserProfile extends Component {
+	constructor(props) {
+		super()
+		this.state = {}
+	}
+
+	componentWillMount = async () => {
+		const response = await userAPI.getUserProfilePageInfo(this.props.match.params.username)
+		await this.setState(response.data)
+		await setWindowTitle(`User ${this.state.username}`)
+	}
+
 	render = () => (
 		<div className='view-wrapper'>
 			<div className='profile-header'>
@@ -17,11 +30,11 @@ class UserProfile extends Component {
 					<div className='profile-avatar-wrapper'>
 						<img
 							className='profile-avatar'
-							src='https://scontent.fsof2-1.fna.fbcdn.net/v/t1.0-9/18556132_1508619549190418_7013986089638763200_n.jpg?oh=9019e06c3f53c90e22280b43b6b37f1f&oe=5A3288ED'
+							src={this.state.avatar}
 							/>
 					</div>
-					<h1 className='profile-user-name'>Veselina Kolova</h1>
-					<span className='member-since'>Member since { moment('2017-08-26T18:34:44.204Z').format('MMMM YYYY') }</span>
+					<h1 className='profile-user-name'>{ this.state.username }</h1>
+					<span className='member-since'>Member since { this.state.joined && moment(`${this.state.joined}`).format('MMMM YYYY') }</span>
 				</div>
 			</div>
 			<div className='profile-content'></div>

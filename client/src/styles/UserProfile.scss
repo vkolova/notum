@@ -3,6 +3,7 @@
 .profile-header {
   height: 230px;
   position: relative;
+  color: $white;
 
   &:before {
     content: '';
@@ -23,6 +24,10 @@
 
 .profile-avatar-wrapper,
 .profile-user-name {
+  z-index: 1;
+}
+
+.member-since {
   z-index: 1;
 }
 
