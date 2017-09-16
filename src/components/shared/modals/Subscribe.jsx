@@ -37,29 +37,32 @@ export default class Subscribe extends Component {
 		})
 	}
 
-    close = () => ModalStore.toggle()
+	close = () => ModalStore.toggle()
 
-	seasonChange = event => {
+	seasonChange = event =>
 		this.setState({
 			...this.state,
 			seasonNumber: event.target.value,
 			season: this.state.show.seasons[event.target.value]
-		});
-	}
+		})
 
-	episodeChange = event => {
+
+	episodeChange = event =>
 		this.setState({
 			...this.state,
 			episodeNumber: event.target.value
-		});
-	}
+		})
+
 
 	watchedChanged = event => {
-		const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
+		const value = event.target.type === 'checkbox'
+			? event.target.checked
+			: event.target.value
+
 		this.setState({
 			...this.state,
 			notWatched: value
-		});
+		})
 	}
 
 	subscribe = () =>
@@ -71,20 +74,21 @@ export default class Subscribe extends Component {
 			showName: this.data.name
 		}).then((res, err) => ModalStore.toggle())
 
-    render = () => (
-        <div className='modal-frame'>
-            <div className='modal-header'>
-                <span className='modal-title'>
+	render = () => (
+		<div className='modal-frame'>
+			<div className='modal-header'>
+				<span className='modal-title'>
 					{ `Subscribe ${this.data.name}` }
 				</span>
-                <span className='modal-close' onClick={this.close}>
-                    <Icon icon='times'/>
-                </span>
-            </div>
 
-            <div className='hr'></div>
+				<span className='modal-close' onClick={this.close}>
+					<Icon icon='times'/>
+				</span>
+			</div>
 
-            <div className='modal-content'>
+			<div className='hr'/>
+
+			<div className='modal-content'>
 				<div className={this.state.notWatched ? 'inactive' : ''}>
 					<div>{ 'What\'s the last episode you watched?' }</div>
 					<label>
@@ -96,11 +100,14 @@ export default class Subscribe extends Component {
 						>
 							{
 								this.state.show.seasons &&
-								this.state.show.seasons.map(s =>
-									(s.season_number !== 0) &&
-									<option value={s.season_number} key={s.id}>{s.season_number}</option>)
-									}
-								</select>
+									this.state.show.seasons.map(s =>
+										(s.season_number !== 0) &&
+											<option
+												value={s.season_number}
+												key={s.id}
+											>{s.season_number}</option>)
+							}
+						</select>
 					</label>
 
 					<label>
@@ -113,9 +120,9 @@ export default class Subscribe extends Component {
 							{
 								this.state.seasonNumber !== 0 &&
 									[...Array(this.state.season.episode_count*1-1).keys()].map((e, i) =>
-									<option value={i+1} key={i+1}>{i+1}</option>)
-									}
-							</select>
+										<option value={i+1} key={i+1}>{i+1}</option>)
+							}
+						</select>
 					</label>
 				</div>
 
@@ -124,10 +131,10 @@ export default class Subscribe extends Component {
 					<label>{ "I haven't watched anything yet." }</label>
 				</div>
 
-                <div className='btn-row'>
-                    <div className='primary-btn' onClick={this.subscribe}>Save</div>
-                </div>
-            </div>
-        </div>
-    )
+				<div className='btn-row'>
+					<div className='primary-btn' onClick={this.subscribe}>Save</div>
+				</div>
+			</div>
+		</div>
+	)
 }

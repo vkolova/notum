@@ -27,49 +27,47 @@ export default class SignIn extends Component {
 	handleChange = event => {
 		this.setState({
 			values: {...this.state.values,
-                    [event.target.name]: event.target.value}
+			[event.target.name]: event.target.value}
 		})
 	}
 
 	handleLogin = event => {
 		event.preventDefault()
 
-        user.signIn(this.state.values)
-            .then(res => {
-                user.setLoggedInUser(res.data)
-                window.location.href = '/'
-            })
-            .catch(err => {
-                this.setState({ error: err.response.data.message })
-                }
-            )
+		user.signIn(this.state.values)
+			.then(res => {
+				user.setLoggedInUser(res.data)
+				window.location.href = '/'
+			})
+			.catch(err =>this.setState({ error: err.response.data.message })
+			)
 	}
 
 	render = () => (
 		<div className='auth-page-container'>
 			<form className='auth-form'>
 				<input
-                    type='email'
-                    name='email'
-                    placeholder='Email'
-                    autoComplete='off'
-                    value={this.state.values.email}
-                    onChange={this.handleChange}
-                />
+					type='email'
+					name='email'
+					placeholder='Email'
+					autoComplete='off'
+					value={this.state.values.email}
+					onChange={this.handleChange}
+				/>
 
 				<input
-                    type='password'
-                    name='password'
-                    placeholder='Password'
-                    value={this.state.values.password}
-                    onChange={this.handleChange}
-                />
+					type='password'
+					name='password'
+					placeholder='Password'
+					value={this.state.values.password}
+					onChange={this.handleChange}
+				/>
 
 				{
 					this.state.error &&
-                        <div className='validation-message'>
-                            { this.state.error }
-                        </div>
+						<div className='validation-message'>
+							{ this.state.error }
+						</div>
 				}
 				<button className={'auth-button'} onClick={this.handleLogin}>Sign In</button>
 			</form>

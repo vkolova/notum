@@ -17,8 +17,8 @@ class Error404 extends Component {
 				4<div className='big-planet'></div>4
 			</h1>
 			<span className='message'>
-                {'Uh, captain? There\'s nothing out here! '}
-                <Emoji label='rocket' hex='&#128640;'/>
+				{'Uh, captain? There\'s nothing out here! '}
+				<Emoji label='rocket' hex='&#128640;'/>
 			</span>
 
 			<div className='medium-planet'></div>
@@ -34,8 +34,8 @@ class Error404 extends Component {
 			<div className='small-planet-10'></div>
 
 			<Link className='back-link' to={'/'}>
-                 <Icon icon={'long-arrow-left'}/> Go home
-            </Link>
+				<Icon icon={'long-arrow-left'}/> Go home
+			</Link>
 			<canvas className='particlesjs-background'></canvas>
 		</div>
 	)

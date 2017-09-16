@@ -2,11 +2,11 @@
 
 * {
 	box-sizing: border-box;
-    outline: none;
+	outline: none;
 
-    &:focus {
-        outline: none;
-    }
+	&:focus {
+		outline: none;
+	}
 }
 
 body {
@@ -14,7 +14,7 @@ body {
 	padding: 0;
 	font-size: 12px;
 	font-family: 'Arial';
-    overflow: hidden;
+	overflow: hidden;
 }
 
 #root {
@@ -23,14 +23,14 @@ body {
 	min-height: 100%;
 	position: absolute;
 	background-color: $black;
-    overflow: hidden;
+	overflow: hidden;
 }
 
 
 a {
-    color: rgba($black, 0.7);
+	color: rgba($black, 0.7);
 	text-decoration: none;
-    cursor: pointer;
+	cursor: pointer;
 }
 
 ul {

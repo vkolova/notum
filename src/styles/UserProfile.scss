@@ -1,37 +1,37 @@
 @import '_variables';
 
 .profile-header {
-    height: 230px;
-	position: relative;
+  height: 230px;
+  position: relative;
 
-	&:before {
-		content: '';
-		top: 0;
-		left: 0;
-		bottom: 0;
-		right: 0;
-		position: absolute;
-		background: linear-gradient(transparent, $black);
-		pointer-events: none;
-	}
+  &:before {
+    content: '';
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    background: linear-gradient(transparent, $black);
+    pointer-events: none;
+  }
 }
 
 .profile-avatar {
-    width: 100px;
-    border-radius: 50%;
+  width: 100px;
+  border-radius: 50%;
 }
 
 .profile-avatar-wrapper,
 .profile-user-name {
-    z-index: 1;
+  z-index: 1;
 }
 
 .profile-user-info {
-    margin-top: -60px;
-    display: flex;
-    align-items: center;
+  margin-top: -60px;
+  display: flex;
+  align-items: center;
 
-    div {
-        margin: 0 10px;
-    }
+  div {
+    margin: 0 10px;
+  }
 }

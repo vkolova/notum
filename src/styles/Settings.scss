@@ -44,17 +44,17 @@
 
 
 .btn-row {
-	padding: 10px 0;
+  padding: 10px 0;
 
-	.primary-btn {
-		height: $input-height;
-		max-width: 135px;
-		line-height: 35px;
-		color: rgba($black, 0.9);
-		background-color: rgba($primary-color, 0.5);
-		border: 1px solid darken($primary-color, 0.05);
-		text-align: center;
-		display: block;
-		cursor: pointer;
-	}
+  .primary-btn {
+    height: $input-height;
+    max-width: 135px;
+    line-height: 35px;
+    color: rgba($black, 0.9);
+    background-color: rgba($primary-color, 0.5);
+    border: 1px solid darken($primary-color, 0.05);
+    text-align: center;
+    display: block;
+    cursor: pointer;
+  }
 }
