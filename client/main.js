@@ -19,7 +19,7 @@ function createWindow () {
 		webPreferences: {
 			webSecurity: false
 		},
-		//   frame: false
+		  // frame: false,
 		backgroundColor: '#000'
 	})
 

@@ -18,7 +18,6 @@ export default class App extends Component {
 				}
 			/>
 			<Route exact path='/sign-up' component={AuthLayout}></Route>
-			<Route exact path='/new' component={MainLayout}></Route>
 			<Route exact path='/tv' component={MainLayout}></Route>
 			<Route exact path='/tv/:id' component={MainLayout}></Route>
 			<Route exact path='/u/:username' component={MainLayout}></Route>

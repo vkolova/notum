@@ -46,7 +46,7 @@ const Player = observer(props => (
       ref={(v) => { video = v; }}
     >
       <source
-        src='file:///D:va-romitri.mp4'
+        src='file:///D:\va-romitri.mp4'
         type='video/webm'
       />
     </video>

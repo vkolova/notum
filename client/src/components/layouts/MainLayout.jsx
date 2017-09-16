@@ -23,7 +23,6 @@ const MainLayout = props => (
 		<Switch>
 			<Route exact path='/' component={Home}></Route>
 			<Route exact path='/tv' component={Popular}></Route>
-			<Route exact path='/new' component={Popular}></Route>
 			<Route exact path='/tv/:id' component={Show}></Route>
 			<Route exact path='/u/:username' component={UserProfile}></Route>
 			<Route exact path='/player' component={Player}></Route>
