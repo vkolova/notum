@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Particles from 'particlesjs'
 
 import user from '../../services/user'
+import setWindowTitle from '../shared/window-title'
 import particlesInit from '../shared/particlesjs-init'
 
 export default class SignUp extends Component {
@@ -15,12 +16,12 @@ export default class SignUp extends Component {
 				password: ''
 			},
 			error: '',
-            validationError: ''
+			validationError: ''
 		}
 	}
 
 	componentDidMount = () => {
-		window.document.title = 'Sign Up'
+		setWindowTitle('Sign Up')
 		Particles.init(particlesInit)
 	}
 
@@ -33,13 +34,13 @@ export default class SignUp extends Component {
 	validate = event => {
 		if (event.target.name === 'password') {
 			event.target.value.length < 6
-    			? this.setState({ validationError: 'Password must be at least 6 characters. But virgin blood and unicorn dust are welcome, too!' })
-    			: this.setState({ validationError: '' })
+				? this.setState({ validationError: 'Password must be at least 6 characters. But virgin blood and unicorn dust are welcome, too!' })
+				: this.setState({ validationError: '' })
 		} else if (event.target.name === 'email') {
 			/* eslint-disable */
 			/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(event.target.value)
-    			? this.setState({ validationError: '' })
-    			: this.setState({ validationError: 'C\'mon, babe. Enter a valid email.' })
+				? this.setState({ validationError: '' })
+				: this.setState({ validationError: 'C\'mon, babe. Enter a valid email.' })
 			/* eslint-enable */
 		}
 	}
@@ -47,59 +48,61 @@ export default class SignUp extends Component {
 	handleRegister = event => {
 		event.preventDefault()
 
-        user.signUp(this.state.values)
-            .then(res => {
-                user.setLoggedInUser(res.data)
-                window.location.href = '/'
-            })
-            .catch(err => this.setState({ error: err.response.data.message }))
+		user.signUp(this.state.values)
+			.then(res => {
+				user.setLoggedInUser(res.data)
+				window.location.href = '/'
+			})
+			.catch(err => this.setState({ error: err.response.data.message }))
 	}
 
 	render = () => (
 		<div className='auth-page-container'>
 			<form className='auth-form'>
 				<input
-                    type='text'
+					type='text'
 					name='username'
 					placeholder='Username'
 					autoComplete='off'
 					value={this.state.values.username}
 					onChange={this.handleChange}
-					onBlur={this.validate}>
-                </input>
+					onBlur={this.validate}
+				/>
 				<input
-                    type='text'
+					type='text'
 					name='email'
 					placeholder='Email'
 					autoComplete='off'
 					value={this.state.values.email}
 					onChange={this.handleChange}
-					onBlur={this.validate}>
-                </input>
+					onBlur={this.validate}
+				/>
 				<input
-                    type='password'
+					type='password'
 					name='password'
 					placeholder='Password'
 					value={this.state.values.password}
 					onChange={this.handleChange}
-					onBlur={this.validate}>
-                </input>
+					onBlur={this.validate}
+				/>
 				{
 					this.state.error &&
-                        <div className='validation-message'>
-                            { this.state.error }
-                        </div>
-                }
-                {
-                    this.state.validationError &&
-                        <div className='validation-message'>
-                            { this.state.validationError }
-                        </div>
+						<div className='validation-message'>
+							{ this.state.error }
+						</div>
+				}
+				{
+					this.state.validationError &&
+						<div className='validation-message'>
+							{ this.state.validationError }
+						</div>
 				}
 				<button
-                    className={`auth-button${this.state.validationError ? ' disabled' : ''}`}
-                    onClick={!this.state.validationError ? this.handleRegister : null}
-                >Register</button>
+					className={`auth-button${this.state.validationError ? ' disabled' : ''}`}
+					onClick={!this.state.validationError ? this.handleRegister : null}
+				>
+					Register
+				</button>
 			</form>
 
 			<footer className='auth-footer'>

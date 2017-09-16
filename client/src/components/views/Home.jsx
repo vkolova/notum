@@ -10,7 +10,7 @@ class Home extends Component {
 
 	render = () => (
 		<div className='view-wrapper'>
-            <h1>Hi!</h1>
+			<h1>Hi!</h1>
 		</div>
 	)
 }

@@ -11,7 +11,7 @@
 
 .auth-form {
 	display: flex;
-    flex-direction: column;
+	flex-direction: column;
 	z-index: 1;
 
 	input {
@@ -47,7 +47,7 @@
 	bottom: 0;
 	padding: 15px;
 	position: absolute;
-    color: $white;
+	color: $white;
 	z-index: 1;
 
 	a {

@@ -10,25 +10,24 @@ import Player from './Player'
 import '../styles/App.scss'
 
 export default class App extends Component {
-	render() {
-		return (
-			<Switch>
-				<Route exact path='/'
-					component={
-						localStorage.getItem('user.loggedIn') ? MainLayout : AuthLayout
-					}></Route>
-				<Route exact path='/sign-up' component={AuthLayout}></Route>
-                <Route exact path='/new' component={MainLayout}></Route>
-				<Route exact path='/tv' component={MainLayout}></Route>
-				<Route exact path='/tv/:id' component={MainLayout}></Route>
-				<Route exact path='/u/:username' component={MainLayout}></Route>
-				<Route exact path='/logout' component={Logout}></Route>
-				<Route exact path='/player' component={MainLayout}></Route>
-                <Route exact path='/settings' component={MainLayout}></Route>
-                <Route exact path='/downloads' component={MainLayout}></Route>
+	render = () => (
+		<Switch>
+			<Route exact path='/'
+				component={
+					localStorage.getItem('user.loggedIn') ? MainLayout : AuthLayout
+				}
+			/>
+			<Route exact path='/sign-up' component={AuthLayout}></Route>
+			<Route exact path='/new' component={MainLayout}></Route>
+			<Route exact path='/tv' component={MainLayout}></Route>
+			<Route exact path='/tv/:id' component={MainLayout}></Route>
+			<Route exact path='/u/:username' component={MainLayout}></Route>
+			<Route exact path='/logout' component={Logout}></Route>
+			<Route exact path='/player' component={MainLayout}></Route>
+			<Route exact path='/settings' component={MainLayout}></Route>
+			<Route exact path='/downloads' component={MainLayout}></Route>
 
-				<Route component={CleanLayout}></Route>
-			</Switch>
-		)
-	}
+			<Route component={CleanLayout}></Route>
+		</Switch>
+	)
 }

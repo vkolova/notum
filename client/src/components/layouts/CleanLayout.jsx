@@ -8,15 +8,13 @@ import SignUp from '../views/SignUp'
 import '../../styles/Auth.scss'
 
 export default class AuthContainer extends Component {
-	render() {
-		return (
-			<div>
-				<Switch>
-					<Route exact path='/sign-up' component={SignUp}></Route>
-					<Route exact path='/' component={SignIn}></Route>
-					<Route component={Error404}></Route>
-				</Switch>
-			</div>
-		)
-	}
+	render = () => (
+		<div>
+			<Switch>
+				<Route exact path='/sign-up' component={SignUp}></Route>
+				<Route exact path='/' component={SignIn}></Route>
+				<Route component={Error404}></Route>
+			</Switch>
+		</div>
+	)
 }

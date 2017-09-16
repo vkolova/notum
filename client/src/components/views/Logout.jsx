@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 
 export default class Logout extends Component {
-    componentDidMount = () => {
-        window.localStorage.clear()
-    	window.location.href = '/'
-    }
+  componentDidMount = () => {
+    window.localStorage.clear()
+    window.location.href = '/'
+  }
 
-	render = () => (
-            <div></div>
-		)
+  render = () => null
 }
