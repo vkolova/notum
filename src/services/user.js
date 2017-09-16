@@ -38,10 +38,19 @@ const signUp = ({email, username, password}) =>
 const updateProfile = ({email, avatar}) =>
 	axios.put(`${consts.SERVER_URL}/profile`, {email, avatar, token: UserStore.token})
 
+const getUserProfilePageInfo = username =>
+	axios.get(`${consts.SERVER_URL}/profile`, {
+		params: {
+			username,
+			token: UserStore.token
+		}
+	})
+
 export default {
 	signIn,
 	signUp,
 	setLoggedInUser,
 	updateProfile,
-	updateUserStore
+	updateUserStore,
+	getUserProfilePageInfo
 }

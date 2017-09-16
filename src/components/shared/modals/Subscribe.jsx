@@ -21,7 +21,7 @@ export default class Subscribe extends Component {
 		}
 	}
 
-	async componentWillMount() {
+	componentWillMount = async () => {
 		const response = await tmdbAPI.getShowData(this.data.id)
 
 		await this.setState({
