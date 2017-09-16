@@ -12,7 +12,18 @@ const getShowData = showId =>
 		}
 	})
 
+const getShowSeason = ({showId, season}) =>
+	axios.get(`${consts.TV_GET}/${showId}/season/${season}`, {
+		params: {
+			api_key: consts.API_KEY,
+			language: 'en-US'
+		}
+	})
+	.then(res => res.data)
+	.catch(err => console.log(err))
+
 
 export default {
-	getShowData
+	getShowData,
+	getShowSeason
 }

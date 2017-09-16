@@ -1,19 +1,31 @@
 import React, { Component } from 'react'
 
 import tmdbAPI from '~~/services/tmdb'
+import episodeAPI from '~~/services/episode'
 import '../styles/Show.scss'
 
 class Show extends Component {
 	constructor(props) {
 		super(props)
-		this.state = { show: {} }
+		this.state = { show: {}, seasons: {} }
 	}
 
 	componentWillMount = async () => {
 		const response = await tmdbAPI.getShowData(this.props.match.params.id)
 
-		await console.log(response.data)
-		await this.setState({show: response.data})
+		// await console.log(response.data)
+		await this.setState({...this.state, show: response.data})
+	}
+
+	markAsWatched = async () => {
+		this.state.show.seasons.splice(0, 1)
+		const seasonsWithEpisodes = await Promise.all(
+			this.state.show.seasons.map(s => tmdbAPI.getShowSeason({ showId: this.state.show.id, season: s.season_number}))
+		)
+		// console.log(seasonsWithEpisodes)
+		seasonsWithEpisodes.forEach(s => {
+			s.episodes.forEach(e => episodeAPI.markEpisodeAsWatched({ episode: e.id }))
+		})
 	}
 
 	render = () => (
@@ -68,6 +80,8 @@ class Show extends Component {
 
 				<div className='show-content'>
 					{'content'}
+
+					<span onClick={this.markAsWatched}>markAsWatched</span>
 				</div>
 			</div>
 		)
