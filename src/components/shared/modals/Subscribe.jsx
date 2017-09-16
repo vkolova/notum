@@ -4,6 +4,7 @@ import axios from 'axios'
 import ModalStore from '~~/stores/modal'
 import consts from '~~/constants'
 import api from '~~/services/subscription'
+import tmdbAPI from '~~/services/tmdb'
 
 import Icon from '../Icon'
 
@@ -21,12 +22,7 @@ export default class Subscribe extends Component {
 	}
 
 	async componentWillMount() {
-		const response = await axios.get(`${consts.TV_GET}/${this.data.id}`, {
-			params: {
-				api_key: consts.API_KEY,
-				language: 'en-US'
-			}
-		})
+		const response = await tmdbAPI.getShowData(this.data.id)
 
 		await this.setState({
 			...this.state,
