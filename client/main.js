@@ -14,12 +14,12 @@ let mainWindow
 function createWindow () {
 	// Create the browser window.
 	mainWindow = new BrowserWindow({
-		width: 1600,
-		height: 900,
+		width: 1200,
+		height: 700,
 		webPreferences: {
 			webSecurity: false
 		},
-		  // frame: false,
+		frame: false,
 		backgroundColor: '#000'
 	})
 
