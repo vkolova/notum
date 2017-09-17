@@ -1,6 +1,30 @@
 @import '_variables';
 
 .app-frame {
+  height: 25px;
+  padding: 0 5px;
+
   color: $white;
-  background-color: $black;
+  background-color: mix($black, $white, 95%);
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  user-select: none;
+  app-region: drag;
+
+  .frame-btn {
+    height: 100%;
+    width: 35px;
+    margin: 0 1px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      background-color: rgba($white, 0.07);
+    }
+  }
 }
