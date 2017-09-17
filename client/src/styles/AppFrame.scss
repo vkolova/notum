@@ -3,16 +3,26 @@
 .app-frame {
   height: 25px;
   padding: 0 5px;
+  position: relative;
 
   color: $white;
   background-color: mix($black, $white, 95%);
 
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
 
   user-select: none;
   app-region: drag;
+
+  .history-arrow {
+    margin: 0 3px;
+  }
+
+  .frame-btns {
+    height: 100%;
+    display: flex;
+  }
 
   .frame-btn {
     height: 100%;
