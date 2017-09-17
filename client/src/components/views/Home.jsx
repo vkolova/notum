@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
+import Icon from '../shared/Icon'
 import setWindowTitle from '../shared/window-title'
 
 import '../../styles/Home.scss'
@@ -10,7 +11,10 @@ class Home extends Component {
 
 	render = () => (
 		<div className='view-wrapper'>
-			<h1>Hi!</h1>
+			<div className='search'>
+				<Icon icon='search'/>
+				<input type='text' placeholder='Search...'/>
+			</div>
 		</div>
 	)
 }

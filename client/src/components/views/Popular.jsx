@@ -48,12 +48,12 @@ export default class Popular extends Component {
 				<div className='pagination'>
 					{
 						this.state.data.page > 1
-							? <Link to={`/tv?page=${this.state.data.page * 1 - 1}`}>
+							? <Link onClick={() => window.location.reload()} to={`/tv?page=${this.state.data.page * 1 - 1}`}>
 									<Icon icon='chevron-left'/>
 								</Link>
 							: null
 					}
-					<Link to={`/tv?page=${this.state.data.page * 1 + 1}`}>
+					<Link onClick={() => window.location.reload()} to={`/tv?page=${this.state.data.page * 1 + 1}`}>
 						<Icon icon='chevron-right'/>
 					</Link>
 				</div>
