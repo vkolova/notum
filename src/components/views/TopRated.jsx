@@ -1,4 +1,3 @@
-import axios from 'axios'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import queryString from 'query-string'
@@ -6,7 +5,7 @@ import queryString from 'query-string'
 import Icon from '../shared/Icon'
 import ShowCard from '../ShowCard'
 import setWindowTitle from '../shared/window-title'
-import consts from '../../constants'
+import tmdbAPI from '~~/services/tmdb'
 
 import '../../styles/Popular.scss'
 
@@ -22,14 +21,7 @@ export default class TopRated extends Component {
 	componentDidMount = () => setWindowTitle('Top Rated TV Shows')
 
 	componentWillMount = async () => {
-		const response = await axios.get(`${consts.TV_URL}${this.props.location.search}`, {
-			params: {
-				api_key: consts.API_KEY,
-				language: 'en-US'
-			}
-		})
-
-		// await console.log(response.data.results)
+		const response = await tmdbAPI.getBySearch(this.props.location.search)
 		await this.setState({ ...this.setState.page, data: response.data })
 	}
 
@@ -48,12 +40,12 @@ export default class TopRated extends Component {
 				<div className='pagination'>
 					{
 						this.state.data.page > 1
-							? <Link onClick={() => window.location.reload()} to={`/tv?page=${this.state.data.page * 1 - 1}`}>
+							? <Link onClick={() => window.location.reload()} to={`/top-rated${this.props.location.search}&page=${this.state.data.page * 1 - 1}`}>
 									<Icon icon='chevron-left'/>
 								</Link>
 							: null
 					}
-					<Link onClick={() => window.location.reload()} to={`/tv?page=${this.state.data.page * 1 + 1}`}>
+					<Link onClick={() => window.location.reload()} to={`/top-rated${this.props.location.search}&page=${this.state.data.page * 1 + 1}`}>
 						<Icon icon='chevron-right'/>
 					</Link>
 				</div>

@@ -8,11 +8,6 @@ import Icon from './Icon'
 import '~~/styles/AppFrame.scss'
 
 class AppFrame extends Component {
-	constructor(props) {
-		super()
-		console.log(props)
-	}
-
 	render = () => (
     <div className='app-frame'>
 			<div>
