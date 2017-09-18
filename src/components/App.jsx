@@ -22,6 +22,7 @@ export default class App extends Component {
 					/>
 				<Route exact path='/sign-up' component={AuthLayout}></Route>
 				<Route exact path='/tv' component={MainLayout}></Route>
+				<Route exact path='/tv/search' component={MainLayout}></Route>
 				<Route exact path='/top-rated' component={MainLayout}></Route>
 				<Route exact path='/tv/:id' component={MainLayout}></Route>
 				<Route exact path='/u/:username' component={MainLayout}></Route>
