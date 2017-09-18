@@ -20,7 +20,7 @@ class UserProfile extends Component {
 	}
 
 	render = () => (
-		<div className='view-wrapper'>
+		<div className='view-wrapper profile-view'>
 			<div className='profile-header'>
 				<WatchTimeChart
 					labels={['19 august','20 august','21 august','22 august','23 august']}
