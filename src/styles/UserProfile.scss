@@ -1,5 +1,9 @@
 @import '_variables';
 
+.profile-view {
+  background-color: $black !important;
+}
+
 .profile-header {
   height: 230px;
   position: relative;

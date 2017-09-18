@@ -46,11 +46,19 @@ const getUserProfilePageInfo = username =>
 		}
 	})
 
+const getUsers = () =>
+	axios.get(`${consts.SERVER_URL}/profile`, {
+		params: {
+			token: UserStore.token
+		}
+	})
+
 export default {
 	signIn,
 	signUp,
 	setLoggedInUser,
 	updateProfile,
 	updateUserStore,
-	getUserProfilePageInfo
+	getUserProfilePageInfo,
+	getUsers
 }
