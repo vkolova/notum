@@ -50,7 +50,7 @@ const Sidebar = observer(props => (
 
     <NavLink
       exact
-      to='/top-rated'
+      to='/top-rated?sort_by=vote_average.desc'
       className='sb-link'
       activeClassName='sb-link-active'
     >
