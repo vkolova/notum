@@ -22,8 +22,8 @@ const getShowSeason = ({showId, season}) =>
 	.then(res => res.data)
 	.catch(err => console.log(err))
 
-const getBySearch = query =>
-	axios.get(`${consts.TV_URL}${query}`, {
+const getTopRated = page =>
+	axios.get(`${consts.TV_TOP_RATED}${page}`, {
 		params: {
 			api_key: consts.API_KEY,
 			language: 'en-US'
@@ -42,6 +42,6 @@ const searchBy = query =>
 export default {
 	getShowData,
 	getShowSeason,
-	getBySearch,
+	getTopRated,
 	searchBy
 }

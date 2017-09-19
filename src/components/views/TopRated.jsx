@@ -21,7 +21,7 @@ export default class TopRated extends Component {
 	componentDidMount = () => setWindowTitle('Top Rated TV Shows')
 
 	componentWillMount = async () => {
-		const response = await tmdbAPI.getBySearch(this.props.location.search)
+		const response = await tmdbAPI.getTopRated(this.props.location.search)
 		await this.setState({ ...this.setState.page, data: response.data })
 	}
 
@@ -40,12 +40,12 @@ export default class TopRated extends Component {
 				<div className='pagination'>
 					{
 						this.state.data.page > 1
-							? <Link onClick={() => window.location.reload()} to={`/top-rated${this.props.location.search}&page=${this.state.data.page * 1 - 1}`}>
+							? <Link onClick={() => window.location.reload()} to={`/top-rated?page=${this.state.data.page * 1 - 1}`}>
 									<Icon icon='chevron-left'/>
 								</Link>
 							: null
 					}
-					<Link onClick={() => window.location.reload()} to={`/top-rated${this.props.location.search}&page=${this.state.data.page * 1 + 1}`}>
+					<Link onClick={() => window.location.reload()} to={`/top-rated?page=${this.state.data.page * 1 + 1}`}>
 						<Icon icon='chevron-right'/>
 					</Link>
 				</div>
