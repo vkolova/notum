@@ -3,6 +3,7 @@ const electron = require('electron')
 const app = electron.app
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
+const Tray = electron.Tray
 
 const path = require('path')
 const url = require('url')
@@ -10,6 +11,7 @@ const url = require('url')
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
+let tray = null
 
 function createWindow () {
 	// Create the browser window.
@@ -37,6 +39,9 @@ function createWindow () {
 		// when you should delete the corresponding element.
 		mainWindow = null
 	})
+
+	tray = new Tray(path.resolve(__dirname, 'src/styles/images/notum-icon.png'));
+	tray.setToolTip('Notum')
 }
 
 // This method will be called when Electron has finished
@@ -50,6 +55,7 @@ app.on('window-all-closed', function () {
 	// to stay active until the user quits explicitly with Cmd + Q
 	if (process.platform !== 'darwin') {
 		app.quit()
+		tray.destroy()
 	}
 })
 
