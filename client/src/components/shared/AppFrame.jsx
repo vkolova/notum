@@ -8,10 +8,14 @@ import Icon from './Icon'
 const win = electron.remote.getCurrentWindow()
 
 import '~~/styles/AppFrame.scss'
+import notumIcon from '~~/styles/images/notum-icon.png'
 
 const AppFrame = observer(() => (
   <div className='app-frame'>
 		<div>
+      <span>
+        <img src={ notumIcon } style={{ maxHeight: '15px', marginRight: '15px' }}/>
+      </span>
 			<span className='history-arrow' onClick={ () => window.history.back() }>
 				<Icon icon='chevron-left'/>
 			</span>

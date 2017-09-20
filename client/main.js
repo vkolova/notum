@@ -20,7 +20,8 @@ function createWindow () {
 			webSecurity: false
 		},
 		frame: false,
-		backgroundColor: '#000'
+		backgroundColor: '#000',
+		icon: path.resolve(__dirname, 'src/styles/images/notum-icon.png')
 	})
 
 	// and load the index.html of the app.

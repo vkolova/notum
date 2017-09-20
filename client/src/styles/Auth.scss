@@ -10,9 +10,15 @@
 }
 
 .auth-form {
+	margin-top: -80px;
 	display: flex;
 	flex-direction: column;
 	z-index: 1;
+
+	img {
+		max-width: 130px;
+		margin: 10px auto;
+	}
 
 	input {
 		height: $input-height;
