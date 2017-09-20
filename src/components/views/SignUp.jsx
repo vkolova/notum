@@ -6,6 +6,8 @@ import user from '../../services/user'
 import setWindowTitle from '../shared/window-title'
 import particlesInit from '../shared/particlesjs-init'
 
+import notumLogo from '~~/styles/images/notum.png'
+
 export default class SignUp extends Component {
 	constructor(props) {
 		super()
@@ -59,6 +61,7 @@ export default class SignUp extends Component {
 	render = () => (
 		<div className='auth-page-container'>
 			<form className='auth-form'>
+				<img src={notumLogo}/>
 				<input
 					type='text'
 					name='username'
