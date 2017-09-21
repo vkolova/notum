@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
 
 import Sidebar from '~~/components/shared/Sidebar'
 import Player from '~~/components/shared/Player'
@@ -24,9 +24,9 @@ const MainLayout = props => (
 		<Sidebar store={UserStore}/>
 		<Switch>
 			<Route exact path='/' component={Home}></Route>
-			<Route exact path='/tv' component={Popular}></Route>
+			<Route exact path='/popular' component={withRouter(Popular)}></Route>
 			<Route exact path='/tv/search' component={Search}></Route>
-			<Route exact path='/top-rated' component={TopRated}></Route>
+			<Route exact path='/top-rated' component={withRouter(TopRated)}></Route>
 			<Route exact path='/tv/:id' component={Show}></Route>
 			<Route exact path='/u/:username' component={UserProfile}></Route>
 			<Route exact path='/player' component={Player}></Route>
