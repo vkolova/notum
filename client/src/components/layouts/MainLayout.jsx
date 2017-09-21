@@ -1,9 +1,9 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import Sidebar from '../Sidebar'
-import Show from '../Show'
-import Player from '../Player'
+import Sidebar from '~~/components/shared/Sidebar'
+import Player from '~~/components/shared/Player'
+import Show from '../views/Show'
 import Home from '../views/Home'
 import Popular from '../views/Popular'
 import Search from '../views/Search'
@@ -11,10 +11,10 @@ import TopRated from '../views/TopRated'
 import Settings from '../views/Settings'
 import Downloads from '../views/Downloads'
 import UserProfile from '../views/UserProfile'
-import Modal from '../shared/Modal'
+import Modal from '~~/components/shared/Modal'
 
-import UserStore from '../../stores/user'
-import ModalStore from '../../stores/modal'
+import UserStore from '~~/stores/user'
+import ModalStore from '~~/stores/modal'
 
 import '../../styles/App.scss'
 

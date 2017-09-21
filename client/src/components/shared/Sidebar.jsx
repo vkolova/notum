@@ -2,10 +2,10 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { observer } from 'mobx-react'
 
-import Icon from './shared/Icon'
-import Avatar from './shared/Avatar'
+import Icon from '../shared/Icon'
+import Avatar from '../shared/Avatar'
 
-import '../styles/Sidebar.scss'
+import '~~/styles/Sidebar.scss'
 
 const Sidebar = observer(props => (
   <div className='sidebar'>
@@ -50,6 +50,26 @@ const Sidebar = observer(props => (
 
     <NavLink
       exact
+      to='/watch-later'
+      className='sb-link'
+      activeClassName='sb-link-active'
+    >
+      <div className='sb-item'><Icon icon={`clock-o`}/> Catch Up</div>
+    </NavLink>
+
+    <NavLink
+      exact
+      to='/downloads'
+      className='sb-link'
+      activeClassName='sb-link-active'
+    >
+      <div className='sb-item'><Icon icon={`download`}/> Downloads</div>
+    </NavLink>
+
+    <div className='sb-title'>Discover</div>
+
+    <NavLink
+      exact
       to='/top-rated?page=1'
       className='sb-link'
       activeClassName='sb-link-active'
@@ -66,23 +86,8 @@ const Sidebar = observer(props => (
       <div className='sb-item'><Icon icon={`fire`}/> Popular</div>
     </NavLink>
 
-    <NavLink
-      exact
-      to='/watch-later'
-      className='sb-link'
-      activeClassName='sb-link-active'
-    >
-      <div className='sb-item'><Icon icon={`clock-o`}/> Catch Up</div>
-    </NavLink>
 
-    <NavLink
-      exact
-      to='/downloads'
-      className='sb-link'
-      activeClassName='sb-link-active'
-    >
-      <div className='sb-item'><Icon icon={`download`}/> Downloads</div>
-    </NavLink>
+    <div className='sb-title'>Account</div>
 
     <NavLink
       exact

@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import queryString from 'query-string'
 
-import Icon from '../shared/Icon'
-import ShowCard from '../ShowCard'
-import setWindowTitle from '../shared/window-title'
+import Icon from '~~/components/shared/Icon'
+import ShowCard from '~~/components/shared/ShowCard'
+import setWindowTitle from '~~/components/shared/window-title'
 import tmdbAPI from '~~/services/tmdb'
 
-import '../../styles/Popular.scss'
+import '~~/styles/Popular.scss'
 
 export default class TopRated extends Component {
 	constructor (props) {

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import ModalStore from '~~/stores/modal'
 import showAPI from '~~/services/show'
-import Icon from './shared/Icon'
+import Icon from './Icon'
 
 import '~~/styles/ShowCard.scss'
 

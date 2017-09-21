@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import tmdbAPI from '~~/services/tmdb'
 import episodeAPI from '~~/services/episode'
-import '../styles/Show.scss'
+import '~~/styles/Show.scss'
 
 class Show extends Component {
 	constructor(props) {

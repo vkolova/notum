@@ -1,8 +1,7 @@
 import React from 'react'
 import { observer } from 'mobx-react'
 
-import '../../styles/Progress.scss'
-
+import '~~/styles/Progress.scss'
 
 const Progress = observer(props => (
   <div className='progress'>

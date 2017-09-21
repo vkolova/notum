@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 
-import '../styles/Ranges.scss'
+import '~~/styles/Ranges.scss'
 
 const VolumeRange = observer(props => (
   <div className={`slider volume-slider`}>

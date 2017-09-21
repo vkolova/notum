@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import moment from 'moment'
 
-import setWindowTitle from '../shared/window-title'
+import setWindowTitle from '~~/components/shared/window-title'
 import userAPI from '~~/services/user'
-import WatchTimeChart from '../WatchTimeChart'
+import WatchTimeChart from '~~/components/shared/WatchTimeChart'
 
 import '../../styles/UserProfile.scss'
 

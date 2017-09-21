@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import { observable } from 'mobx'
 import { observer } from 'mobx-react'
 
-import Icon from './shared/Icon'
-import Progress from './shared/Progress'
+import Icon from './Icon'
+import Progress from './Progress'
 
-import { prettyBytes } from '../utils/byte-utils'
+import { prettyBytes } from '~~/utils/byte-utils'
 
-import '../styles/Downloads.scss'
+import '~~/styles/Downloads.scss'
 
 @observer
 class Torrent extends Component {

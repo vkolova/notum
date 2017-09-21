@@ -3,9 +3,9 @@ import { observable } from 'mobx'
 import { observer } from 'mobx-react'
 
 import { client, clientStore } from '../../bootstrapper'
-import Torrent from '../Torrent'
-import setWindowTitle from '../shared/window-title'
-import { prettyBytes } from '../../utils/byte-utils'
+import Torrent from '~~/components/shared/Torrent'
+import setWindowTitle from '~~/components/shared/window-title'
+import { prettyBytes } from '~~/utils/byte-utils'
 
 import '../../styles/Downloads.scss'
 
