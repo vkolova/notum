@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 
+import setWindowTitle from '../shared/window-title'
 import tmdbAPI from '~~/services/tmdb'
 import episodeAPI from '~~/services/episode'
+
 import '~~/styles/Show.scss'
 
 class Show extends Component {
@@ -15,6 +17,7 @@ class Show extends Component {
 
 		// await console.log(response.data)
 		await this.setState({...this.state, show: response.data})
+		await setWindowTitle(`${this.state.show.name}`)
 	}
 
 	markAsWatched = async () => {
@@ -29,13 +32,8 @@ class Show extends Component {
 	}
 
 	render = () => (
-			<div className='view-wrapper'>
-				<div
-					className='show-header'
-					style={{
-						backgroundImage: `url(https://image.tmdb.org/t/p/w1400_and_h450_bestv2${this.state.show.backdrop_path})`
-					}}
-				>
+			<div className='view-wrapper black-view'>
+				<div className='show-header'>
 					<div className='show-poster'>
 						<img
 							src={ `https://image.tmdb.org/t/p/w640${this.state.show.poster_path}` }
@@ -77,14 +75,17 @@ class Show extends Component {
 						<p className='overview'>{ this.state.show.overview }</p>
 					</div>
 				</div>
-
-				<div className='show-content'>
-					{'content'}
-
-					<span onClick={this.markAsWatched}>markAsWatched</span>
-				</div>
+				<div
+					className='show-background'
+					style={{backgroundImage: `url(https://image.tmdb.org/t/p/w1400_and_h450_bestv2${this.state.show.backdrop_path})`}}
+				/>
 			</div>
 		)
 }
+// <div className='show-content'>
+// 	{'content'}
+//
+// 	<span onClick={this.markAsWatched}>markAsWatched</span>
+// </div>
 
 export default Show
