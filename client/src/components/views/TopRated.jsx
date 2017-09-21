@@ -4,6 +4,7 @@ import queryString from 'query-string'
 
 import Icon from '~~/components/shared/Icon'
 import ShowCard from '~~/components/shared/ShowCard'
+import SearchBar from '../shared/SearchBar'
 import setWindowTitle from '~~/components/shared/window-title'
 import tmdbAPI from '~~/services/tmdb'
 
@@ -40,12 +41,12 @@ export default class TopRated extends Component {
 				<div className='pagination'>
 					{
 						this.state.data.page > 1
-							? <Link onClick={() => window.location.reload()} to={`/top-rated?page=${this.state.data.page * 1 - 1}`}>
+							? <Link to={`/top-rated?page=${this.state.data.page * 1 - 1}`}>
 									<Icon icon='chevron-left'/>
 								</Link>
 							: null
 					}
-					<Link onClick={() => window.location.reload()} to={`/top-rated?page=${this.state.data.page * 1 + 1}`}>
+					<Link to={`/top-rated?page=${this.state.data.page * 1 + 1}`}>
 						<Icon icon='chevron-right'/>
 					</Link>
 				</div>

@@ -6,7 +6,6 @@ export default class SearchBar extends Component {
   constructor(props) {
     super()
     this.state = { search: '' }
-    console.log(props)
   }
 
   handleInput = e => {
@@ -14,8 +13,7 @@ export default class SearchBar extends Component {
   }
 
   search = e => {
-    // console.log(this.state.search)
-    window.location.href = `/tv/search?${this.state.search.replace(/\s/g, '-')}`
+    this.props.props.history.push(`/tv/search?${this.state.search.replace(/\s/g, '-')}`)
   }
 
   handleKeyPress = e => e.key === 'Enter' && this.search()
