@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component  } from 'react'
 import { Link } from 'react-router-dom'
 import queryString from 'query-string'
 
@@ -40,12 +40,12 @@ export default class Popular extends Component {
 				<div className='pagination'>
 					{
 						this.state.data.page > 1
-							? <Link onClick={() => window.location.reload()} to={`/tv?page=${this.state.data.page * 1 - 1}`}>
+							? <Link to={`/popular?page=${this.state.data.page * 1 - 1}`}>
 									<Icon icon='chevron-left'/>
 								</Link>
 							: null
 					}
-					<Link onClick={() => window.location.reload()} to={`/tv?page=${this.state.data.page * 1 + 1}`}>
+					<Link to={`/popular?page=${this.state.data.page * 1 + 1}`}>
 						<Icon icon='chevron-right'/>
 					</Link>
 				</div>

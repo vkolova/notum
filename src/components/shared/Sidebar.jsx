@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 import { observer } from 'mobx-react'
 
 import Icon from '../shared/Icon'
@@ -70,7 +70,7 @@ const Sidebar = observer(props => (
 
     <NavLink
       exact
-      to='/top-rated?page=1'
+      to='/top-rated'
       className='sb-link'
       activeClassName='sb-link-active'
     >
@@ -79,7 +79,7 @@ const Sidebar = observer(props => (
 
     <NavLink
       exact
-      to='/tv'
+      to='/popular'
       className='sb-link'
       activeClassName='sb-link-active'
     >
@@ -121,4 +121,4 @@ const Sidebar = observer(props => (
   </div>
 ))
 
-export default Sidebar
+export default withRouter(Sidebar)
