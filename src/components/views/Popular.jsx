@@ -4,6 +4,7 @@ import queryString from 'query-string'
 
 import Icon from '~~/components/shared/Icon'
 import ShowCard from '~~/components/shared/ShowCard'
+import SearchBar from '../shared/SearchBar'
 import setWindowTitle from '~~/components/shared/window-title'
 import tmdbAPI from '~~/services/tmdb'
 

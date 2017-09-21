@@ -32,8 +32,17 @@
 		margin-left: 15px;
 	}
 
-	.genres {
-		color: $light-grey;
+	.details {
+		color: rgba($white, 0.7);
+
+		span {
+			margin: 0 3px;
+	    margin-right: 15px;
+		}
+
+		i {
+			color: $white;
+		}
 	}
 }
 

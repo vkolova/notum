@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import Icon from '../shared/Icon'
 import setWindowTitle from '../shared/window-title'
 import tmdbAPI from '~~/services/tmdb'
 import episodeAPI from '~~/services/episode'
@@ -44,25 +45,35 @@ class Show extends Component {
 					<div className='show-info'>
 						<h1 className='show-title'>
 							{ this.state.show.name }
-							<span> ({ this.state.show.first_air_date
-								? this.state.show.first_air_date.split('-')[0]
-								: null }-{ this.state.show.last_air_date
-									? this.state.show.last_air_date.split('-')[0]
-									: null })
-							</span>
 						</h1>
 
-						<div className='genres'>
-							{
-								this.state.show.genres
-									? this.state.show.genres.map(g => <span key={g.id.toString()}>{g.name} | </span>)
-									: null
-							}
+						<div className='details'>
+							<Icon icon='calendar'/>
+							<span>
+								{
+									this.state.show.first_air_date
+										? this.state.show.first_air_date.split('-')[0]
+										: null }-{ this.state.show.last_air_date
+											? this.state.show.last_air_date.split('-')[0]
+											: null
+								}
+							</span>
+
+							<Icon icon='film'/>
+							<span>
+								{
+									this.state.show.genres
+										? this.state.show.genres[0].name
+										: null
+								}
+							</span>
+
+							<Icon icon='clock-o'/>
 							<span>
 								{
 									this.state.show.episode_run_time
 										? this.state.show.episode_run_time.length
-											?`${this.state.show.episode_run_time}min`
+											? this.state.show.episode_run_time
 												: null
 										: null
 								}
