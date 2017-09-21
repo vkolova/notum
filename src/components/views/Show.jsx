@@ -82,7 +82,6 @@ class Show extends Component {
 
 						<br/>
 
-						<h2>Overview</h2>
 						<p className='overview'>{ this.state.show.overview }</p>
 					</div>
 				</div>
