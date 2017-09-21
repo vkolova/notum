@@ -5,7 +5,7 @@ import AuthLayout from './layouts/AuthLayout'
 import CleanLayout from './layouts/CleanLayout'
 import MainLayout from './layouts/MainLayout'
 import Logout from './views/Logout'
-import Player from './Player'
+import Player from '~~/components/shared/Player'
 import AppFrame from '~~/components/shared/AppFrame'
 
 import '../styles/App.scss'

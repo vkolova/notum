@@ -1,8 +1,6 @@
 import React from 'react'
 import { observer } from 'mobx-react'
 
-import '../styles/Player.scss'
-
 const Time = observer(props => (
   <span className={'player-time'}>
     <span>

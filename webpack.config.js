@@ -53,9 +53,9 @@ module.exports = {
 	},
 	plugins: [
     	new ExtractTextPlugin('styles.css'),
-		new HtmlWebpackPlugin({
-			template: './public/index.html',
-			filename: 'index.html'
+			new HtmlWebpackPlugin({
+				template: './public/index.html',
+				filename: 'index.html'
 		}),
 		new webpack.HotModuleReplacementPlugin()
 	],

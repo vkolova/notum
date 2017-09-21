@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 
-import Icon from './shared/Icon'
+import Icon from './Icon'
 import VolumeRange from './VolumeRange'
 import ProgressRange from './ProgressRange'
 import Time from './Time'
-
-import '../styles/Player.scss'
 
 const PlayerControls = observer(props => (
   <div className='pl-controls'>

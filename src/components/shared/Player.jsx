@@ -5,7 +5,7 @@ import screenfull from 'screenfull'
 
 import PlayerControls from './PlayerControls'
 
-import '../styles/Player.scss'
+import '~~/styles/Player.scss'
 
 let video = null
 
