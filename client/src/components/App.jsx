@@ -26,6 +26,7 @@ export default class App extends Component {
 				<Route exact path='/top-rated' component={MainLayout}></Route>
 				<Route exact path='/tv/:id' component={MainLayout}></Route>
 				<Route exact path='/u/:username' component={MainLayout}></Route>
+				<Route exact path='/favorites' component={MainLayout}></Route>
 				<Route exact path='/logout' component={Logout}></Route>
 				<Route exact path='/player' component={MainLayout}></Route>
 				<Route exact path='/settings' component={MainLayout}></Route>

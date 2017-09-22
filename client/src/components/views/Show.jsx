@@ -5,6 +5,7 @@ import setWindowTitle from '../shared/window-title'
 import tmdbAPI from '~~/services/tmdb'
 import episodeAPI from '~~/services/episode'
 import eventAPI from '~~/services/event'
+import showAPI from '~~/services/show'
 
 import '~~/styles/Show.scss'
 
@@ -32,6 +33,11 @@ class Show extends Component {
 		seasonsWithEpisodes.forEach(s => {
 			s.episodes.forEach(e => episodeAPI.markEpisodeAsWatched({ episode: e.id }))
 		})
+	}
+
+	favorite = () => {
+		eventAPI.logEvent({ event: 'added to favorites', showId: this.state.show.id })
+		showAPI.favorite({ showId: this.state.show.id })
 	}
 
 	render = () => (
@@ -85,6 +91,9 @@ class Show extends Component {
 						<br/>
 
 						<p className='overview'>{ this.state.show.overview }</p>
+
+						<span onClick={this.favorite}><Icon icon='heart'/></span>
+						<span onClick={this.markAsWatched}><Icon icon='eye'/></span>
 					</div>
 				</div>
 				<div
