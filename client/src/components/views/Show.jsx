@@ -4,6 +4,7 @@ import Icon from '../shared/Icon'
 import setWindowTitle from '../shared/window-title'
 import tmdbAPI from '~~/services/tmdb'
 import episodeAPI from '~~/services/episode'
+import eventAPI from '~~/services/event'
 
 import '~~/styles/Show.scss'
 
@@ -22,6 +23,7 @@ class Show extends Component {
 	}
 
 	markAsWatched = async () => {
+		eventAPI.logEvent({ event: 'marked as watched', showId: this.state.show.id })
 		this.state.show.seasons.splice(0, 1)
 		const seasonsWithEpisodes = await Promise.all(
 			this.state.show.seasons.map(s => tmdbAPI.getShowSeason({ showId: this.state.show.id, season: s.season_number}))
