@@ -53,6 +53,14 @@ const getUsers = () =>
 		}
 	})
 
+const getFavorites = (user = UserStore.username) =>
+	axios.get(`${consts.SERVER_URL}/favorites`, {
+		params: {
+			username: user,
+			token: UserStore.token
+		}
+	})
+
 export default {
 	signIn,
 	signUp,
@@ -60,5 +68,6 @@ export default {
 	updateProfile,
 	updateUserStore,
 	getUserProfilePageInfo,
-	getUsers
+	getUsers,
+	getFavorites
 }
