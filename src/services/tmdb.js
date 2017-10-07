@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import UserStore from '~~/stores/user'
+// import UserStore from '~~/stores/user'
 import consts from '~~/constants'
 
 
@@ -19,8 +19,8 @@ const getShowSeason = ({showId, season}) =>
 			language: 'en-US'
 		}
 	})
-	.then(res => res.data)
-	.catch(err => console.log(err))
+		.then(res => res.data)
+		.catch(err => console.log(err))
 
 const getTopRated = page =>
 	axios.get(`${consts.TV_TOP_RATED}${page}`, {
