@@ -7,5 +7,5 @@ const logEvent = data =>
 	axios.post(`${consts.SERVER_URL}/event`, { ...data, token: UserStore.token })
 
 export default {
-  logEvent
+	logEvent
 }
