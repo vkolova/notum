@@ -27,8 +27,9 @@ export default class TopRated extends Component {
 	}
 
 	render = () => (
-		<div className='view-wrapper'>
-			<div className='shows-container'>
+		<div className='view-wrapper app-page-wrapper'>
+			<SearchBar/>
+			<div className='shows-container app-page-content has-search-bar'>
 				{
 					this.state.data.results &&
 						this.state.data.results.map(s =>
