@@ -1,0 +1,9 @@
+@import '_variables';
+
+.app-page-wrapper{
+    .app-page-content{
+        &.has-search-bar{
+            margin-top: 45px;
+        }
+    }
+}
