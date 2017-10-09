@@ -28,7 +28,7 @@ export default class Popular extends Component {
 
 	render = () => (
 		<div className='view-wrapper app-page-wrapper'>
-			<SearchBar/>
+			<SearchBar props={this.props}/>
 			<div className='shows-container app-page-content has-search-bar'>
 				{
 					this.state.data.results &&
