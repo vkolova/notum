@@ -1,17 +1,24 @@
 const assert = require('chai').assert ;
+const expect = require('chai').expect ;
+const should = require('should');
+const request = require('request');
+const util = require('util');
 
-function add(a,b){
-	return a+b;
-}
+const getUsers = require('../../server/api/user').getUsers ;
 
-describe('First Simple Test',function(){
-	it('It should Return 5',function(){
-		assert(2+3,5);
-	});
-});
+var baseUrl = "http://127.0.0.1:3001";
 
-describe('Unit Testing With Functions',function(){
-	it('It Should Return 6+7',function(){
-		assert(add(6,7),13);
+var formData = { username : 'testUsername' , password : 'testPass' , email : 'test@test.com' } ;
+
+describe('Saving New User',function(){
+	it('It Should Insert A New User To DB',function(){
+		request.post({
+			uri:baseUrl+'/sign-up',
+			form:formData
+		},function(err,resp,body){
+			var respBody = JSON.parse(body)
+			expect(resp.statusCode).to.equal(200)
+			expect(respBody.success).to.equal(true)
+		});
 	});
 });
