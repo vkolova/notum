@@ -43,8 +43,8 @@ export default class ShowCard extends Component {
 
 				<p>
 					{
-						this.props.data.overview.length > 350
-							? `${this.props.data.overview.substring(0, 350)}...`
+						this.props.data.overview.length > 250
+							? `${this.props.data.overview.substring(0, 250)}...`
 							: this.props.data.overview
 					}
 				</p>
