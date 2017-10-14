@@ -1,7 +1,6 @@
 @import '_variables';
 
 .show-page {
-	// padding: 5% 10%;
 	position: relative;
 	color: $white;
   background-color: $black !important;
@@ -24,8 +23,7 @@
   }
 
 	.show-info {
-		// padding: 20px;
-		margin-left: 15px;
+		margin-left: 25px;
 	}
 
 	.details {
@@ -63,7 +61,6 @@
 
 
 .show-section {
-  // padding: 50px;
   padding: 15px;
   display: flex;
   flex: 1;
@@ -90,7 +87,6 @@
 }
 
 .sm-item {
-  // height: 25px;
   padding: 5px 5px;
   cursor: pointer;
 
