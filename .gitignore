@@ -2,9 +2,7 @@ node_modules
 
 server/config.js
 server/node_modules
-server/package-lock.json
 server/npm-*
 
 client/node_modules
-client/package-lock.json
 client/npm-*
