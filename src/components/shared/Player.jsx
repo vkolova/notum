@@ -1,6 +1,6 @@
 import React from 'react'
 import { observer } from 'mobx-react'
-import { action,  observable } from 'mobx'
+import { observable } from 'mobx'
 import screenfull from 'screenfull'
 
 import PlayerControls from './PlayerControls'
