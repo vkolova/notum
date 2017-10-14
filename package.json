@@ -4,7 +4,7 @@
   "private": true,
   "main": "main.js",
   "scripts": {
-    "start": "concurrently \"npm run webpack\" \"npm run electron\" \"nodemon ../server/server.js\"",
+    "start": "concurrently \"npm run webpack\" \"npm run electron\"",
     "linter:js": "eslint .",
     "webpack": "webpack-dev-server",
     "electron": "electron ."
