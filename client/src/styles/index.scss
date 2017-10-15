@@ -28,6 +28,19 @@ body {
 	overflow: hidden;
 }
 
+*::-webkit-scrollbar-track {
+	border-radius: 7px;
+	background-color: rgba($black, 0.1);
+}
+
+*::-webkit-scrollbar {
+	width: 7px;
+}
+
+*::-webkit-scrollbar-thumb {
+	border-radius: 7px;
+	background-color: #555;
+}
 
 a {
 	color: rgba($black, 0.7);
