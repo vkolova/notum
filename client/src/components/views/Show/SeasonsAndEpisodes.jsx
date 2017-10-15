@@ -1,20 +1,17 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
-import { observable, computed } from 'mobx'
+import { observable } from 'mobx'
 
 import Icon from '../../shared/Icon'
-import setWindowTitle from '../../shared/window-title'
 import tmdbAPI from '~~/services/tmdb'
 import episodeAPI from '~~/services/episode'
 import eventAPI from '~~/services/event'
-import showAPI from '~~/services/show'
 
 @observer
 class SeasonsAndEpisodes extends Component {
   constructor(props) {
     super()
     this.state = observable({ season: 1, episode: 1 })
-    this.seasons = computed(() => 15)
   }
 
   setActiveSeason = index => {
@@ -24,6 +21,14 @@ class SeasonsAndEpisodes extends Component {
 
   setActiveEpisode = index => {
     this.state.episode = index + 1
+  }
+
+  markAsWatched = () => {
+    episodeAPI.markEpisodeAsWatched({
+      show: this.props.showStore.id,
+      episode: this.props.store[this.state.season - 1].episodes[this.state.episode - 1].id,
+      date: Date.now()
+    })
   }
 
 	render = () => (
@@ -48,6 +53,7 @@ class SeasonsAndEpisodes extends Component {
           }
         </div>
         <div className='show-tab'>
+          <span onClick={this.markAsWatched}><Icon icon='eye'/></span>
           <p>
             {
               this.props.store.length > 0 && this.props.store[this.state.season - 1].episodes[this.state.episode - 1] &&

@@ -27,20 +27,18 @@ class Show extends Component {
       .then(async (res) => {
         this.setState({...this.state, show: res.data})
         setWindowTitle(`${this.state.show.name}`)
-        // this.state.show.seasons.splice(0, 1)
         const seasonsWithEpisodes = await Promise.all(
           this.state.show.seasons.map(s => tmdbAPI.getShowSeason({ showId: this.state.show.id, season: s.season_number}))
         )
         await this.setState({ ...this.state, seasons: seasonsWithEpisodes})
         await console.log(seasonsWithEpisodes)
-        // this.state.show.seasons.map(s => await this.state.seasons.push(tmdbAPI.getShowSeason({ showId: this.state.show.id, season: s.season_number})))
       })
   }
 
 	render = () => (
 			<div className='view-wrapper show-page'>
         <Overview store={this.state.show}/>
-        <SeasonsAndEpisodes store={this.state.seasons}/>
+        <SeasonsAndEpisodes showStore={this.state.show} store={this.state.seasons}/>
 				<div
 					className='show-background'
 					style={{backgroundImage: `url(https://image.tmdb.org/t/p/w1400_and_h450_bestv2${this.state.show.backdrop_path})`}}
