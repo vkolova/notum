@@ -28,6 +28,20 @@ const Sidebar = observer(props => (
       </div>
     </div>
 
+    {
+      props.store.admin && <div className='sb-title'>Admin</div>
+    }
+    {
+      props.store.admin && <NavLink
+        exact
+        to='/users'
+        className='sb-link'
+        activeClassName='sb-link-active'
+      >
+        <div className='sb-item'><Icon icon={`users`}/> Users</div>
+      </NavLink>
+    }
+
     <div className='sb-title'>Main</div>
 
     <NavLink

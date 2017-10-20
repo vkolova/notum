@@ -3,6 +3,8 @@ import axios from 'axios'
 import UserStore from '~~/stores/user'
 import consts from '~~/constants'
 
+axios.defaults.headers.common['x-access-token'] = UserStore.token;
+
 const setLoggedInUser = data => {
 	UserStore.loggedIn = true
 	UserStore.token = data.token
@@ -40,25 +42,15 @@ const updateProfile = ({email, avatar}) =>
 
 const getUserProfilePageInfo = username =>
 	axios.get(`${consts.SERVER_URL}/profile`, {
-		params: {
-			username,
-			token: UserStore.token
-		}
+		params: { username }
 	})
 
 const getUsers = () =>
-	axios.get(`${consts.SERVER_URL}/profile`, {
-		params: {
-			token: UserStore.token
-		}
-	})
+	axios.get(`${consts.SERVER_URL}/users`)
 
 const getFavorites = (user = UserStore.username) =>
 	axios.get(`${consts.SERVER_URL}/favorites`, {
-		params: {
-			username: user,
-			token: UserStore.token
-		}
+		params: { username: user }
 	})
 
 export default {
