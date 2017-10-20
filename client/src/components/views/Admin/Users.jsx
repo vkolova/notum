@@ -15,12 +15,33 @@ class Users extends Component {
 		const response = await userAPI.getUsers()
 		await this.setState({ users: response.data })
 		await setWindowTitle(`Users`)
-    await console.log(this.state.users)
 	}
 
 	render = () => (
 		<div className='view-wrapper profile-view'>
-
+      <table>
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Admin</th>
+            <th>Email</th>
+            <th>Joined</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            this.state.users.length > 0 &&
+            this.state.users.map(u =>
+              <tr key={ u.email }>
+                <td>{ u.username }</td>
+                <td>{ u.admin.toString() }</td>
+                <td>{ u.email }</td>
+                <td>{ u.joined }</td>
+              </tr>
+            )
+          }
+        </tbody>
+      </table>
 		</div>
 	)
 }
