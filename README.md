@@ -22,4 +22,4 @@ module.exports = {
 	'database': '<MONGO_DATABASE>'
 }
 ```
-- `npm start` from the `client` folder
+- `npm start` from `client` and `server`
