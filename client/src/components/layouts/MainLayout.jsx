@@ -3,6 +3,7 @@ import { Route, Switch, withRouter } from 'react-router-dom'
 
 import Sidebar from '~~/components/shared/Sidebar'
 import Player from '~~/components/shared/Player'
+import Users from '~~/components/views/Admin/Users'
 import Show from '../views/Show'
 import Home from '../views/Home'
 import Popular from '../views/Popular'
@@ -34,6 +35,8 @@ const MainLayout = props => (
 			<Route exact path='/player' component={Player}></Route>
 			<Route exact path='/settings' render={() => <Settings store={UserStore}/>}></Route>
 			<Route exact path='/downloads' component={Downloads}></Route>
+
+      <Route exact path='/users' component={Users}></Route>
 		</Switch>
 	</div>
 )
