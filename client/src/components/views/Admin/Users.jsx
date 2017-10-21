@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import setWindowTitle from '~~/components/shared/window-title'
 import userAPI from '~~/services/user'
 
+import '~~/styles/Admin.scss'
+
 class Users extends Component {
 	constructor(props) {
 		super()
@@ -18,7 +20,7 @@ class Users extends Component {
 	}
 
 	render = () => (
-		<div className='view-wrapper profile-view'>
+		<div className='view-wrapper users-view'>
       <table>
         <thead>
           <tr>

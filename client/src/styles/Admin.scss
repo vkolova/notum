@@ -1,0 +1,24 @@
+@import '_variables';
+
+.users-view {
+  background-color: $black !important;
+  color: $white;
+
+  table {
+    width: 100%;
+    border-spacing: 0;
+  }
+
+  th, td {
+    padding: 5px 15px;
+    text-align: left;
+  }
+
+  th {
+    background-color: rgba($primary-color, 0.5);
+  }
+
+  tr:nth-child(even) {
+    background-color: rgba($primary-color, 0.15);
+  }
+}
