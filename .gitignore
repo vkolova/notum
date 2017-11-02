@@ -6,3 +6,11 @@ server/npm-*
 
 client/node_modules
 client/npm-*
+client/*.js
+client/*.css
+client/*.png
+client/*.eot
+client/*.svg
+client/*.ttf
+client/*.woff
+client/*.woff2
