@@ -4,9 +4,10 @@
   "private": true,
   "main": "main.js",
   "scripts": {
-    "start": "concurrently \"npm run webpack\" \"npm run electron\"",
+    "start": "concurrently \"npm run webpack-dev\" \"npm run electron\"",
     "linter:js": "eslint .",
-    "webpack": "webpack-dev-server",
+    "webpack-dev": "webpack-dev-server --config webpack.config.js",
+    "build": "webpack --config webpack.prod.js",
     "electron": "electron ."
   },
   "dependencies": {
@@ -61,9 +62,11 @@
     "style-loader": "0.17.0",
     "stylelint": "^8.1.1",
     "stylelint-config-standard": "^17.0.0",
+    "uglifyjs-webpack-plugin": "^1.0.1",
     "url-loader": "0.5.8",
     "webpack": "^2.6.1",
     "webpack-dev-server": "2.4.5",
+    "webpack-merge": "^4.1.1",
     "webpack-node-externals": "^1.6.0"
   }
 }
