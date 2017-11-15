@@ -13,7 +13,7 @@
   justify-content: space-between;
 
   user-select: none;
-  app-region: drag;
+  -webkit-app-region: drag;
 
   .history-arrow {
     margin: 0 3px;
