@@ -14,3 +14,4 @@ client/*.svg
 client/*.ttf
 client/*.woff
 client/*.woff2
+client/public/dist
