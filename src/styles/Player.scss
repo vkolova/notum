@@ -1,8 +1,8 @@
 @import '_variables';
 
 .player {
-  width: 700px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
   position: relative;
 
   &:hover {
@@ -19,11 +19,20 @@
   position: absolute;
 
   color: $white;
-  opacity: 1;
+  opacity: 0;
 
   display: flex;
   align-items: center;
   justify-content: space-around;
+
+  span {
+    cursor: pointer;
+  }
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
 }
 
 .player-time {

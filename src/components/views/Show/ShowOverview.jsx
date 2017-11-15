@@ -22,7 +22,7 @@ class Overview extends Component {
     <div className='show-section'>
       <div className='show-header'>
         <span>{ this.props.store.name }</span>
-        <span>
+        <span className='show-global-actions'>
           <span onClick={this.favorite}><Icon icon='heart'/></span>
           <span onClick={this.markAsWatched}><Icon icon='eye'/></span>
         </span>
