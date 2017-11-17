@@ -7,7 +7,16 @@ import setWindowTitle from '../shared/window-title'
 import '../../styles/Home.scss'
 
 class Home extends Component {
-	componentDidMount = () => setWindowTitle('Home')
+	componentDidMount = () => {
+    setWindowTitle('Home')
+    // var notification = new Notification('Email received', {
+    //   body: 'You have a total of 3 unread emails'
+    // });
+    //
+    // notification.onshow = function() {
+    //   console.log('Notification shown');
+    // };
+  }
 
 	render = () => (
 		<div className='view-wrapper'>

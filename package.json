@@ -8,7 +8,6 @@
     "linter:js": "eslint .",
     "webpack-dev": "webpack-dev-server --config webpack.config.js",
     "build": "webpack --config webpack.prod.js",
-    "package": "",
     "electron": "electron ."
   },
   "description": "Just an app.",

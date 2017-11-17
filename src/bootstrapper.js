@@ -10,11 +10,13 @@ const clientStore = observable({
 	torrents: [...client.torrents]
 })
 
+axios.defaults.headers.common['x-access-token'] = UserStore.token;
+
 client.on('torrent', torrent => clientStore.torrents.push(torrent))
 client.on('error', err => console.log(err))
 
 // const task = setInterval(() =>
-window.task = () => axios.get(`${consts.SERVER_URL}/update`, {params: {token: UserStore.token}})
+window.task = () => axios.get(`${consts.SERVER_URL}/update`)
 	.then((res) =>
 		res.data && client.add(res.data[0].link, { path: 'D:/Downloads' }, () => {})
 		// res.data && console.log(res.data)

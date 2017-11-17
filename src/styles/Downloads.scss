@@ -1,12 +1,32 @@
 @import '_variables';
 
+.downloads-view {
+  color: $white !important;
+  background-color: $black !important;
+}
+
 .download {
 	height: 35px;
 	margin-top: -1px;
+  position: relative;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-around;
-	border-bottom: 1px solid rgba($black, 0.3);
-	border-top: 1px solid rgba($black, 0.3);
+}
+
+.dw-btn {
+  width: 50px;
+}
+
+.dw-name {
+  flex: 1;
+}
+
+.dw-progress {
+  height: 1px;
+  left: 0;
+  bottom: -1px;
+  position: absolute;
+  background-color: $primary-color;
 }
