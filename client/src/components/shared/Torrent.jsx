@@ -31,6 +31,16 @@ class Torrent extends Component {
       // this.torrentStore.downloadSpeed = prettyBytes(torrent.downloadSpeed) + '/s'
       // this.torrentStore.uploadSpeed = prettyBytes(torrent.uploadSpeed) + '/s'
     })
+
+    torrent.on('done', () => {
+      var notification = new Notification('New Episode', {
+        body: torrent.name
+      })
+
+      notification.onclick = () => {
+        console.log('Notification shown');
+      }
+    })
   }
 
   pause = () => {
@@ -50,14 +60,10 @@ class Torrent extends Component {
           <Icon icon={`${this.torrentStore.paused ? 'play' : 'pause'}`}/>
         </span>
       </div>
-      <div>
+      <div className='dw-name'>
         <span>{this.props.store.name}</span>
       </div>
-      <div className='dw-progress'>
-        <Progress store={this.torrentStore} rv='progress'/>
-        <span>{`${this.torrentStore.progress}%`}</span>
-      </div>
-
+      <div className='dw-progress' style={{ width: `${this.torrentStore.progress}%` }}></div>
     </div>
   )
 }
