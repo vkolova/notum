@@ -21,8 +21,8 @@
     "semi": ["error", "never"],
     "no-console": 0,
     "react/jsx-uses-react": "error",
-	"react/jsx-uses-vars": "error",
-	"func-names": "off",
-	"no-tabs": "off"
+    "react/jsx-uses-vars": "error",
+    "func-names": "off",
+    "no-tabs": "off"
   }
 }
