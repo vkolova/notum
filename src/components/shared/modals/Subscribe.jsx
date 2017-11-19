@@ -5,6 +5,7 @@ import ModalStore from '~~/stores/modal'
 import consts from '~~/constants'
 import api from '~~/services/subscription'
 import tmdbAPI from '~~/services/tmdb'
+import gettext from '~~/utils/i18n'
 
 import Icon from '../Icon'
 
@@ -86,9 +87,9 @@ export default class Subscribe extends Component {
 
 			<div className='modal-content'>
 				<div className={this.state.notWatched ? 'inactive' : ''}>
-					<div>{ 'What\'s the last episode you watched?' }</div>
+					<div>{ gettext('What\'s the last episode you watched?') }</div>
 					<label>
-						Season:
+						{ gettext('Season') }:
 						<select
 							className='select'
 							defaultValue={this.state.seasonNumber}
@@ -107,7 +108,7 @@ export default class Subscribe extends Component {
 					</label>
 
 					<label>
-						Episode:
+						{ gettext('Episode') }:
 						<select
 							className='select'
 							defaultValue={this.state.episodeNumber}
@@ -124,11 +125,11 @@ export default class Subscribe extends Component {
 
 				<div className='checkbox-row'>
 					<input type='checkbox' checked={this.state.notWatched} onChange={this.watchedChanged}/>
-					<label>{ "I haven't watched anything yet." }</label>
+					<label>{ gettext('I haven\'t watched anything yet.') }</label>
 				</div>
 
 				<div className='btn-row'>
-					<div className='primary-btn' onClick={this.subscribe}>Save</div>
+					<div className='primary-btn' onClick={this.subscribe}>{ gettext('Save') }</div>
 				</div>
 			</div>
 		</div>

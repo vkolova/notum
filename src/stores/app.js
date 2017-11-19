@@ -2,7 +2,16 @@ import { observable } from 'mobx'
 
 const AppStore = observable({
 	title: '',
-  language: 'EN'
+  language: localStorage.getItem('app.language') || 'EN',
+  downloadsLocation: localStorage.getItem('app.downloadsLocation') || '',
+  changeLanguage: event => {
+  	localStorage.setItem('app.language', event.target.value)
+    AppStore.language = event.target.value
+  },
+  changeDownloadsLocation: location => {
+    localStorage.setItem('app.downloadsLocation', location)
+    AppStore.downloadsLocation = location
+  }
 })
 
 export default AppStore
