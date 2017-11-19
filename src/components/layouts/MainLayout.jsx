@@ -13,6 +13,7 @@ import Settings from '../views/Settings'
 import Downloads from '../views/Downloads'
 import UserProfile from '../views/UserProfile'
 import Favorites from '../views/Favorites'
+import CatchUp from '../views/CatchUp'
 import Modal from '~~/components/shared/Modal'
 
 import UserStore from '~~/stores/user'
@@ -32,7 +33,7 @@ const MainLayout = props => (
 			<Route exact path='/tv/:id' component={Show}></Route>
 			<Route exact path='/u/:username' component={UserProfile}></Route>
 			<Route exact path='/favorites' component={Favorites}></Route>
-			<Route exact path='/player' component={Player}></Route>
+			<Route exact path='/catch-up' component={CatchUp}></Route>
 			<Route exact path='/settings' render={() => <Settings store={UserStore}/>}></Route>
 			<Route exact path='/downloads' component={Downloads}></Route>
 

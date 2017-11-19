@@ -1,6 +1,6 @@
 import { observable } from 'mobx'
 
-const UserStore = window.user = observable({
+const UserStore = observable({
 	username: localStorage.getItem('user.username'),
 	loggedIn : localStorage.getItem('user.loggedIn'),
 	joined: localStorage.getItem('user.joined'),

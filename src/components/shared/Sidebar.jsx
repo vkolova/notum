@@ -64,7 +64,7 @@ const Sidebar = observer(props => (
 
     <NavLink
       exact
-      to='/watch-later'
+      to='/catch-up'
       className='sb-link'
       activeClassName='sb-link-active'
     >
@@ -122,15 +122,6 @@ const Sidebar = observer(props => (
     </NavLink>
 
     <div className='sb-hr'/>
-
-    <NavLink
-      exact
-      to='/player'
-      className='sb-link'
-      activeClassName='sb-link-active'
-    >
-      <div className='sb-item'><Icon icon={`play`}/> Player</div>
-    </NavLink>
 
   </div>
 ))

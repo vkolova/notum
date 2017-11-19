@@ -1,6 +1,6 @@
 import { observable } from 'mobx'
 
-const ModalStore = window.modal = observable({
+const ModalStore = observable({
 	show: false,
 	modal: '',
 	data: {},

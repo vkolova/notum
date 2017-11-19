@@ -15,7 +15,7 @@ class Downloads extends Component {
 	componentDidMount = () => setWindowTitle('Downloads')
 
 	render = () => (
-		<div className='view-wrapper downloads-view'>
+		<div className='view-wrapper black-view'>
 			<h1>{ `Current downloads: ${clientStore.torrents.length}` }</h1>
 			{
 				clientStore.torrents.map(torrent =>

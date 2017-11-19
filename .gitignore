@@ -1,1 +1,7 @@
 node_modules
+
+public/dist
+public/node_modules
+public/package*
+public/.babelrc
+public/main.js
