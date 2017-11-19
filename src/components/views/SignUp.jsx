@@ -66,7 +66,7 @@ export default class SignUp extends Component {
 				<input
 					type='text'
 					name='username'
-					placeholder={ getttext('Username') }
+					placeholder={ gettext('Username') }
 					autoComplete='off'
 					value={this.state.values.username}
 					onChange={this.handleChange}

@@ -10,20 +10,20 @@ import '~~/styles/Settings.scss'
 
 @observer
 export default class Settings extends Component {
-	componentDidMount = () => setWindowTitle(getttext('Settings'))
+	componentDidMount = () => setWindowTitle(gettext('Settings'))
 
 	render = () => (
 		<div className='view-wrapper settings-wrapper'>
-			<h2>{ getttext('Settings') }</h2>
+			<h2>{ gettext('Settings') }</h2>
       <ProfileSettings store={this.props.store}/>
 
 			<div className='section'>
 				<span className='section-header'>
-					{ getttext('App') }
+					{ gettext('App') }
 					<div className='hr'/>
 				</span>
 				<form>
-					<label>{ getttext('Downloads location') }</label>
+					<label>{ gettext('Downloads location') }</label>
 					<input type='text' name='downlocation' defaultValue='' />
 				</form>
 			</div>
