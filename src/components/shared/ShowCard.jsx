@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import ModalStore from '~~/stores/modal'
 import showAPI from '~~/services/show'
+import ModalStore from '~~/stores/modal'
 import Icon from './Icon'
+import gettext from '~~/utils/i18n'
 
 import '~~/styles/ShowCard.scss'
 
@@ -56,7 +57,7 @@ export default class ShowCard extends Component {
 
 				<div className='hr'/>
 
-				<Link to={`/tv/${this.props.data.id}`}>More info</Link>
+				<Link to={`/tv/${this.props.data.id}`}>{ gettext('More info') }</Link>
 			</div>
 
 		</div>

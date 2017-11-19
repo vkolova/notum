@@ -5,6 +5,7 @@ import Particles from 'particlesjs'
 import particlesInit from '../shared/particlesjs-init'
 import setWindowTitle from '../shared/window-title'
 import user from '../../services/user'
+import gettext from '~~/utils/i18n'
 
 import notumLogo from '~~/styles/images/notum.png'
 
@@ -22,7 +23,7 @@ export default class SignIn extends Component {
 	}
 
 	componentDidMount = () => {
-		setWindowTitle('Sign In')
+		setWindowTitle(gettext('Sign In'))
 		Particles.init(particlesInit)
 	}
 
@@ -52,7 +53,7 @@ export default class SignIn extends Component {
 				<input
 					type='email'
 					name='email'
-					placeholder='Email'
+					placeholder={ gettext('Email') }
 					autoComplete='off'
 					value={this.state.values.email}
 					onChange={this.handleChange}
@@ -61,7 +62,7 @@ export default class SignIn extends Component {
 				<input
 					type='password'
 					name='password'
-					placeholder='Password'
+					placeholder={ gettext('Password') }
 					value={this.state.values.password}
 					onChange={this.handleChange}
 				/>
@@ -72,11 +73,11 @@ export default class SignIn extends Component {
 							{ this.state.error }
 						</div>
 				}
-				<button className={'auth-button'} onClick={this.handleLogin}>Sign In</button>
+				<button className={'auth-button'} onClick={this.handleLogin}>{ gettext('Sign In') }</button>
 			</form>
 
 			<footer className='auth-footer'>
-				<p>Don't have an account yet? <Link to='/sign-up'>Sign Up</Link> here.</p>
+				<p>{ gettext(`Don't have an account yet?`) } <Link to='/sign-up'>{ gettext('Sign In') }</Link> { gettext('here') }.</p>
 			</footer>
 			<canvas className='particlesjs-background'></canvas>
 		</div>

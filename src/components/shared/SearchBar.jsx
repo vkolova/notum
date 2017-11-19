@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import Icon from '../shared/Icon'
+import gettext from '~~/utils/i18n'
 
 export default class SearchBar extends Component {
   constructor(props) {
@@ -21,7 +22,7 @@ export default class SearchBar extends Component {
   render = () => (
     <div className='search'>
       <Icon icon='search'/>
-      <input type='text' onChange={this.handleInput} onKeyPress={this.handleKeyPress} placeholder='Search...'/>
+      <input type='text' onChange={this.handleInput} onKeyPress={this.handleKeyPress} placeholder={gettext('Search...')}/>
     </div>
   )
 }

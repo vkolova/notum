@@ -5,6 +5,7 @@ import Particles from 'particlesjs'
 import user from '../../services/user'
 import setWindowTitle from '../shared/window-title'
 import particlesInit from '../shared/particlesjs-init'
+import gettext from '~~/utils/i18n'
 
 import notumLogo from '~~/styles/images/notum.png'
 
@@ -23,7 +24,7 @@ export default class SignUp extends Component {
 	}
 
 	componentDidMount = () => {
-		setWindowTitle('Sign Up')
+		setWindowTitle(gettext('Sign Up'))
 		Particles.init(particlesInit)
 	}
 
@@ -36,13 +37,13 @@ export default class SignUp extends Component {
 	validate = event => {
 		if (event.target.name === 'password') {
 			event.target.value.length < 6
-				? this.setState({ validationError: 'Password must be at least 6 characters. But virgin blood and unicorn dust are welcome, too!' })
+				? this.setState({ validationError: gettext('Password must be at least 6 characters. But virgin blood and unicorn dust are welcome, too!') })
 				: this.setState({ validationError: '' })
 		} else if (event.target.name === 'email') {
 			/* eslint-disable */
 			/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(event.target.value)
 				? this.setState({ validationError: '' })
-				: this.setState({ validationError: 'C\'mon, babe. Enter a valid email.' })
+				: this.setState({ validationError: gettext('C\'mon, babe. Enter a valid email.') })
 			/* eslint-enable */
 		}
 	}
@@ -65,7 +66,7 @@ export default class SignUp extends Component {
 				<input
 					type='text'
 					name='username'
-					placeholder='Username'
+					placeholder={ getttext('Username') }
 					autoComplete='off'
 					value={this.state.values.username}
 					onChange={this.handleChange}
@@ -74,7 +75,7 @@ export default class SignUp extends Component {
 				<input
 					type='text'
 					name='email'
-					placeholder='Email'
+					placeholder={ gettext('Email') }
 					autoComplete='off'
 					value={this.state.values.email}
 					onChange={this.handleChange}
@@ -83,7 +84,7 @@ export default class SignUp extends Component {
 				<input
 					type='password'
 					name='password'
-					placeholder='Password'
+					placeholder={ gettext('Password') }
 					value={this.state.values.password}
 					onChange={this.handleChange}
 					onBlur={this.validate}
@@ -104,12 +105,12 @@ export default class SignUp extends Component {
 					className={`auth-button${this.state.validationError ? ' disabled' : ''}`}
 					onClick={!this.state.validationError ? this.handleRegister : null}
 				>
-					Register
+					{ gettext('Register') }
 				</button>
 			</form>
 
 			<footer className='auth-footer'>
-				<p>Already have an account? <Link to='/'>Sign In</Link> here.</p>
+				<p>{ gettext('Already have an account?') } <Link to='/'>{ gettext('Sign In') }</Link> { gettext('here') }.</p>
 			</footer>
 			<canvas className='particlesjs-background'></canvas>
 		</div>

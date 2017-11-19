@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 
 import user from '~~/services/user'
+import gettext from '~~/utils/i18n'
 
 @observer
 export default class ProfileSettings extends Component {
@@ -24,13 +25,13 @@ export default class ProfileSettings extends Component {
 	render = () => (
 		<div className='section'>
 			<span className='section-header'>
-				Profile
+				{ gettext('Profile') }
 				<div className='hr'/>
 			</span>
 
 			<form>
 				<div className='form-row'>
-					<label>Username</label>
+					<label>{ gettext('Username') }</label>
 					<input
 						type='text'
 						name='username'
@@ -40,7 +41,7 @@ export default class ProfileSettings extends Component {
 				</div>
 
 				<div className='form-row'>
-					<label>Avatar URL</label>
+					<label>{ gettext('Avatar URL') }</label>
 					<input
 						type='text'
 						name='avatar'
@@ -50,7 +51,7 @@ export default class ProfileSettings extends Component {
 				</div>
 
 				<div className='form-row'>
-					<label>Email</label>
+					<label>{ gettext('Email') }</label>
 					<input
 						type='email'
 						name='email'
@@ -59,7 +60,7 @@ export default class ProfileSettings extends Component {
 					/>
 				</div>
 				<div className='btn-row'>
-					<a className='primary-btn' onClick={ this.saveProfileChanges }>Save changes</a>
+					<a className='primary-btn' onClick={ this.saveProfileChanges }>{ gettext('Save changes') }</a>
 				</div>
 			</form>
 		</div>

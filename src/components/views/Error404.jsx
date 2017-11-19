@@ -5,6 +5,7 @@ import Icon from '../shared/Icon'
 import Emoji from '../shared/Emoji'
 import particlesInit from '../shared/particlesjs-init'
 import setWindowTitle from '../shared/window-title'
+import gettext from '~~/utils/i18n'
 
 import '../../styles/Error404.scss'
 
@@ -17,7 +18,7 @@ class Error404 extends Component {
 				4<div className='big-planet'></div>4
 			</h1>
 			<span className='message'>
-				{'Uh, captain? There\'s nothing out here! '}
+				{ gettext('Uh, captain? There\'s nothing out here! ') }
 				<Emoji label='rocket' hex='&#128640;'/>
 			</span>
 
@@ -34,7 +35,7 @@ class Error404 extends Component {
 			<div className='small-planet-10'></div>
 
 			<Link className='back-link' to={'/'}>
-				<Icon icon={'long-arrow-left'}/> Go home
+				<Icon icon={'long-arrow-left'}/> { gettext('Go home') }
 			</Link>
 			<canvas className='particlesjs-background'></canvas>
 		</div>

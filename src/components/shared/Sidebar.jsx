@@ -4,6 +4,7 @@ import { observer } from 'mobx-react'
 
 import Icon from '../shared/Icon'
 import Avatar from '../shared/Avatar'
+import gettext from '~~/utils/i18n'
 
 import '~~/styles/Sidebar.scss'
 
@@ -19,7 +20,7 @@ const Sidebar = observer(props => (
       <div className='sb-user-info'>
         <span className='sb-username'>{ props.store.username }</span>
         <br/>
-        <span className='online'>{ props.store.online ? 'online' : 'offline' }</span>
+        <span className='online'>{ props.store.online ? gettext('online') : gettext('offline') }</span>
       </div>
       <div>
         <NavLink to='/logout'>
@@ -29,7 +30,7 @@ const Sidebar = observer(props => (
     </div>
 
     {
-      props.store.admin && <div className='sb-title'>Admin</div>
+      props.store.admin && <div className='sb-title'>{ gettext('Admin') }</div>
     }
     {
       props.store.admin && <NavLink
@@ -38,11 +39,11 @@ const Sidebar = observer(props => (
         className='sb-link'
         activeClassName='sb-link-active'
       >
-        <div className='sb-item'><Icon icon={`users`}/> Users</div>
+        <div className='sb-item'><Icon icon={`users`}/> { gettext('Users') }</div>
       </NavLink>
     }
 
-    <div className='sb-title'>Main</div>
+    <div className='sb-title'>{ gettext('Main') }</div>
 
     <NavLink
       exact
@@ -50,7 +51,7 @@ const Sidebar = observer(props => (
       className='sb-link'
       activeClassName='sb-link-active'
     >
-      <div className='sb-item'><Icon icon={`home`}/> Home</div>
+      <div className='sb-item'><Icon icon={`home`}/> { gettext('Home') }</div>
     </NavLink>
 
     <NavLink
@@ -59,7 +60,7 @@ const Sidebar = observer(props => (
       className='sb-link'
       activeClassName='sb-link-active'
     >
-      <div className='sb-item'><Icon icon={`heart`}/> Favorites</div>
+      <div className='sb-item'><Icon icon={`heart`}/> { gettext('Favorites') }</div>
     </NavLink>
 
     <NavLink
@@ -68,7 +69,7 @@ const Sidebar = observer(props => (
       className='sb-link'
       activeClassName='sb-link-active'
     >
-      <div className='sb-item'><Icon icon={`clock-o`}/> Catch Up</div>
+      <div className='sb-item'><Icon icon={`clock-o`}/> { gettext('Catch Up') }</div>
     </NavLink>
 
     <NavLink
@@ -77,10 +78,10 @@ const Sidebar = observer(props => (
       className='sb-link'
       activeClassName='sb-link-active'
     >
-      <div className='sb-item'><Icon icon={`download`}/> Downloads</div>
+      <div className='sb-item'><Icon icon={`download`}/> { gettext('Downloads') }</div>
     </NavLink>
 
-    <div className='sb-title'>Discover</div>
+    <div className='sb-title'>{ gettext('Discover') }</div>
 
     <NavLink
       exact
@@ -88,7 +89,7 @@ const Sidebar = observer(props => (
       className='sb-link'
       activeClassName='sb-link-active'
     >
-      <div className='sb-item'><Icon icon={`star`}/> Top rated</div>
+      <div className='sb-item'><Icon icon={`star`}/> { gettext('Top rated') }</div>
     </NavLink>
 
     <NavLink
@@ -97,11 +98,11 @@ const Sidebar = observer(props => (
       className='sb-link'
       activeClassName='sb-link-active'
     >
-      <div className='sb-item'><Icon icon={`fire`}/> Popular</div>
+      <div className='sb-item'><Icon icon={`fire`}/> { gettext('Popular') }</div>
     </NavLink>
 
 
-    <div className='sb-title'>Account</div>
+    <div className='sb-title'>{ gettext('Account') }</div>
 
     <NavLink
       exact
@@ -109,7 +110,7 @@ const Sidebar = observer(props => (
       className='sb-link'
       activeClassName='sb-link-active'
     >
-      <div className='sb-item'><Icon icon={`cog`}/> Settings</div>
+      <div className='sb-item'><Icon icon={`cog`}/> { gettext('Settings') }</div>
     </NavLink>
 
     <NavLink
@@ -118,7 +119,7 @@ const Sidebar = observer(props => (
       className='sb-link'
       activeClassName='sb-link-active'
     >
-      <div className='sb-item'><Icon icon={`sign-out`}/> Logout</div>
+      <div className='sb-item'><Icon icon={`sign-out`}/> { gettext('Logout') }</div>
     </NavLink>
 
     <div className='sb-hr'/>

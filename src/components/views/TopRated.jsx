@@ -7,6 +7,7 @@ import ShowCard from '~~/components/shared/ShowCard'
 import SearchBar from '../shared/SearchBar'
 import setWindowTitle from '~~/components/shared/window-title'
 import tmdbAPI from '~~/services/tmdb'
+import gettext from '~~/utils/i18n'
 
 import '~~/styles/Popular.scss'
 
@@ -19,7 +20,7 @@ export default class TopRated extends Component {
 		}
 	}
 
-	componentDidMount = () => setWindowTitle('Top Rated TV Shows')
+	componentDidMount = () => setWindowTitle(gettext('Top Rated TV Shows'))
 
 	componentWillMount = async () => {
 		const response = await tmdbAPI.getTopRated(this.props.location.search)

@@ -8,6 +8,7 @@ import SearchBar from '../shared/SearchBar'
 import setWindowTitle from '~~/components/shared/window-title'
 import tmdbAPI from '~~/services/tmdb'
 import userAPI from '~~/services/user'
+import gettext from '~~/utils/i18n'
 
 import '~~/styles/Popular.scss'
 
@@ -17,7 +18,7 @@ export default class Favorites extends Component {
 		this.state = {}
 	}
 
-	componentDidMount = () => setWindowTitle('Favorites')
+	componentDidMount = () => setWindowTitle(gettext('Favorites'))
 
 	componentWillMount = async () => {
 		const response = await userAPI.getFavorites()

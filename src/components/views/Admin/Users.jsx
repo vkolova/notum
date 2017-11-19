@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import setWindowTitle from '~~/components/shared/window-title'
+import gettext from '~~/utils/i18n'
 import userAPI from '~~/services/user'
 
 import '~~/styles/Admin.scss'
@@ -24,10 +25,10 @@ class Users extends Component {
       <table>
         <thead>
           <tr>
-            <th>Username</th>
-            <th>Admin</th>
-            <th>Email</th>
-            <th>Joined</th>
+            <th>{ gettext('Username') }</th>
+            <th>{ gettext('Admin') }</th>
+            <th>{ gettext('Email') }</th>
+            <th>{ gettext('Joined') }</th>
           </tr>
         </thead>
         <tbody>

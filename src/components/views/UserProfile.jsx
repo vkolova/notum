@@ -4,6 +4,7 @@ import moment from 'moment'
 import setWindowTitle from '~~/components/shared/window-title'
 import userAPI from '~~/services/user'
 import WatchTimeChart from '~~/components/shared/WatchTimeChart'
+import gettext from '~~/utils/i18n'
 
 import '../../styles/UserProfile.scss'
 
@@ -34,7 +35,7 @@ class UserProfile extends Component {
 							/>
 					</div>
 					<h1 className='profile-user-name'>{ this.state.username }</h1>
-					<span className='member-since'>Member since { this.state.joined && moment(`${this.state.joined}`).format('MMMM YYYY') }</span>
+					<span className='member-since'>{ gettext('Member since') } { this.state.joined && moment(`${this.state.joined}`).format('MMMM YYYY') }</span>
 				</div>
 			</div>
 			<div className='profile-content'></div>
