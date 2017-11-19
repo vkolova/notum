@@ -3,12 +3,13 @@ import React, { Component } from 'react'
 import Icon from '../shared/Icon'
 import SearchBar from '../shared/SearchBar'
 import setWindowTitle from '../shared/window-title'
+import gettext from '~~/utils/i18n'
 
 import '../../styles/Home.scss'
 
 class Home extends Component {
 	componentDidMount = () => {
-    setWindowTitle('Home')
+    setWindowTitle(gettext('Home'))
     // var notification = new Notification('Email received', {
     //   body: 'You have a total of 3 unread emails'
     // });
