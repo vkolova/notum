@@ -38,7 +38,14 @@ class UserProfile extends Component {
 					<span className='member-since'>{ gettext('Member since') } { this.state.joined && moment(`${this.state.joined}`).format('MMMM YYYY') }</span>
 				</div>
 			</div>
-			<div className='profile-content'></div>
+			<div className='profile-content'>
+        {
+          this.state.activity &&
+          this.state.activity.map((a, i) =>
+            <h6 key={i.toString()}>{ `${a.timestamp} ${a.event}` }</h6>
+          )
+        }
+			</div>
 		</div>
 	)
 }
