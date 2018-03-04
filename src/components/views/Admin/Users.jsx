@@ -4,6 +4,8 @@ import setWindowTitle from '~~/components/shared/window-title'
 import gettext from '~~/utils/i18n'
 import userAPI from '~~/services/user'
 
+import AppStore from '~~/stores/app'
+
 import '~~/styles/Admin.scss'
 
 class Users extends Component {
@@ -12,12 +14,14 @@ class Users extends Component {
 		this.state = {
       users: []
     }
+    AppStore.setLoading(true)
 	}
 
 	componentWillMount = async () => {
 		const response = await userAPI.getUsers()
 		await this.setState({ users: response.data })
 		await setWindowTitle(`Users`)
+    await AppStore.setLoading(false)
 	}
 
 	render = () => (

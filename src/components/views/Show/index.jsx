@@ -11,6 +11,8 @@ import showAPI from '~~/services/show'
 import SeasonsAndEpisodes from './SeasonsAndEpisodes'
 import Overview from './ShowOverview'
 
+import AppStore from '~~/stores/app'
+
 import '~~/styles/Show.scss'
 
 class Show extends Component {
@@ -23,6 +25,7 @@ class Show extends Component {
 	}
 
   componentWillMount = () => {
+    AppStore.setLoading(true)
     tmdbAPI.getShowData(this.props.match.params.id)
       .then(async (res) => {
         this.setState({...this.state, show: res.data})
@@ -32,6 +35,7 @@ class Show extends Component {
         )
         await this.setState({ ...this.state, seasons: seasonsWithEpisodes})
         await console.log(seasonsWithEpisodes)
+        await AppStore.setLoading(false)
       })
   }
 

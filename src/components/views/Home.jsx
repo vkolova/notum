@@ -5,11 +5,16 @@ import SearchBar from '../shared/SearchBar'
 import setWindowTitle from '../shared/window-title'
 import gettext from '~~/utils/i18n'
 
+import AppStore from '~~/stores/app'
+
 import '../../styles/Home.scss'
 
 class Home extends Component {
+  componentWillMount = () => AppStore.setLoading(true)
+
 	componentDidMount = () => {
     setWindowTitle(gettext('Home'))
+    AppStore.setLoading(false)
     // var notification = new Notification('Email received', {
     //   body: 'You have a total of 3 unread emails'
     // });

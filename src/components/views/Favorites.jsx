@@ -10,12 +10,15 @@ import tmdbAPI from '~~/services/tmdb'
 import userAPI from '~~/services/user'
 import gettext from '~~/utils/i18n'
 
+import AppStore from '~~/stores/app'
+
 import '~~/styles/Popular.scss'
 
 export default class Favorites extends Component {
 	constructor (props) {
 		super()
 		this.state = {}
+    AppStore.setLoading(true)
 	}
 
 	componentDidMount = () => setWindowTitle(gettext('Favorites'))
@@ -24,6 +27,7 @@ export default class Favorites extends Component {
 		const response = await userAPI.getFavorites()
     const tmdbData = await Promise.all(response.data.map(s => tmdbAPI.getShowData(s.showId).then(res => res.data)))
     await this.setState({ favorites: tmdbData })
+    await AppStore.setLoading(false)
 	}
 
 	render = () => (

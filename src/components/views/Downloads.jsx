@@ -10,7 +10,6 @@ import gettext from '~~/utils/i18n'
 
 import '../../styles/Downloads.scss'
 
-
 @observer
 class Downloads extends Component {
 	componentDidMount = () => setWindowTitle(gettext('Downloads'))

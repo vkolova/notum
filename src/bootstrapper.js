@@ -17,18 +17,10 @@ client.on('error', err => console.log(err))
 
 // const task = setInterval(() =>
 window.task = () => axios.get(`${consts.SERVER_URL}/update`)
-	.then((res) =>
-		res.data && client.add(res.data[0].link, { path: 'D:/Downloads' }, () => {})
-		// res.data && console.log(res.data)
+	.then(res =>
+		res.data && client.add(res.data.torrentLink, { path: 'D:/Downloads' }, () => {})
 	)
 // 		, 6000*10)
-
-// window.task = () =>
-// 	axios.get(`${consts.SERVER_URL}/update`, {params: {token: UserStore.token}})
-// 		.then((res, err) =>
-// 			res.data && console.log(res.data)
-// 		)
-
 
 const exporting = {
 	client,

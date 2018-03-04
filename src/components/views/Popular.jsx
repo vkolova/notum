@@ -9,6 +9,8 @@ import setWindowTitle from '~~/components/shared/window-title'
 import tmdbAPI from '~~/services/tmdb'
 import gettext from '~~/utils/i18n'
 
+import AppStore from '~~/stores/app'
+
 import '~~/styles/Popular.scss'
 
 export default class Popular extends Component {
@@ -18,6 +20,7 @@ export default class Popular extends Component {
 		this.state = {
 			data: {}
 		}
+    AppStore.setLoading(true)
 	}
 
 	componentDidMount = () => setWindowTitle(gettext('Popular TV Shows'))
@@ -25,6 +28,7 @@ export default class Popular extends Component {
 	componentWillMount = async () => {
 		const response = await tmdbAPI.getBySearch(this.props.location.search)
 		await this.setState({ ...this.setState.page, data: response.data })
+    await AppStore.setLoading(false)
 	}
 
 	render = () => (
