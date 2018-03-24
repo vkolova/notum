@@ -5,3 +5,4 @@ public/node_modules
 public/package*
 public/.babelrc
 public/main.js
+dist/*

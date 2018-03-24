@@ -4,7 +4,7 @@ const language = AppStore.language
 const translations = require(`~~/i18n/${language}.json`);
 
 const gettext = text => {
-  !translations[text] && console.log(text)
+  process.env.DEVELOPMENT && !translations[text] && console.log(text)
   return translations[text] || text
 }
 

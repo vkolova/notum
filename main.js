@@ -26,7 +26,10 @@ function createWindow() {
 	})
 
 	// and load the index.html of the app.
-	mainWindow.loadURL('http://localhost:3000/')
+	// mainWindow.loadURL('http://localhost:3000/')
+  console.log(path.resolve(__dirname))
+  mainWindow.loadURL(path.resolve(__dirname, 'public/index.html'))
+  // mainWindow.loadURL(`file://${__dirname}/index.html`)
 
 	// Open the DevTools.
 	mainWindow.webContents.openDevTools()
@@ -39,8 +42,10 @@ function createWindow() {
 		mainWindow = null
 	})
 
-	tray = new Tray(path.resolve(__dirname, 'src/styles/images/notum-icon.png'))
-	tray.setToolTip('Notum')
+  if (!tray) {
+    tray = new Tray(path.resolve(__dirname, 'src/styles/images/notum-icon.png'))
+    tray.setToolTip('Notum')
+  }
 }
 
 // This method will be called when Electron has finished
