@@ -16,12 +16,6 @@ const AppFrame = observer(() => (
       <span>
         <img src={ notumIcon } style={{ maxHeight: '15px', marginRight: '15px' }}/>
       </span>
-			<span className='history-arrow' onClick={ () => window.history.back() }>
-				<Icon icon='chevron-left'/>
-			</span>
-			<span className='history-arrow' onClick={ () => window.history.forward() }>
-				<Icon icon='chevron-right'/>
-			</span>
 		</div>
 
 		<div>{ AppStore.title }</div>

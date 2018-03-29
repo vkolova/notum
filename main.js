@@ -1,11 +1,9 @@
 const electron = require('electron')
-// Module to control application life.
-const { app } = electron
-// Module to create native browser window.
-const { BrowserWindow } = electron
-const { Tray } = electron
-
+const { app, BrowserWindow, Tray, autoUpdater, dialog } = electron
 const path = require('path')
+const os = require('os');
+
+const isDev = require('electron-is-dev');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -26,10 +24,44 @@ function createWindow() {
 	})
 
 	// and load the index.html of the app.
-	// mainWindow.loadURL('http://localhost:3000/')
-  console.log(path.resolve(__dirname))
-  mainWindow.loadURL(path.resolve(__dirname, 'public/index.html'))
-  // mainWindow.loadURL(`file://${__dirname}/index.html`)
+  if (isDev) {
+    console.log('Running in development');
+    mainWindow.loadURL('http://localhost:3000/')
+  } else {
+    console.log('Running in production');
+    mainWindow.loadURL(path.resolve(__dirname, 'public/index.html'))
+
+    var platform = os.platform() + '_' + os.arch();
+    var version = app.getVersion();
+
+    autoUpdater.setFeedURL('https://notum-update-server.herokuapp.com/update/' + platform + '/' + version);
+
+    setInterval(() => {
+      autoUpdater.checkForUpdates()
+    }, 60000)
+
+    autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
+      const dialogOpts = {
+        type: 'info',
+        buttons: ['Restart', 'Later'],
+        title: 'Application Update',
+        message: process.platform === 'win32' ? releaseNotes : releaseName,
+        detail: 'A new version has been downloaded. Restart the application to apply the updates.'
+      }
+
+      dialog.showMessageBox(dialogOpts, (response) => {
+        if (response === 0) autoUpdater.quitAndInstall()
+      })
+    })
+
+    autoUpdater.on('error', message => {
+      console.error('There was a problem updating the application')
+      console.error(message)
+    })
+
+    autoUpdater.on('checking-for-update', _ => console.log('checking-for-update'))
+    autoUpdater.on('update-available', _ => console.log('update available'))
+  }
 
 	// Open the DevTools.
 	mainWindow.webContents.openDevTools()
