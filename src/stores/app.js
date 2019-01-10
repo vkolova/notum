@@ -1,7 +1,7 @@
 import { observable } from 'mobx'
 
 const AppStore = observable({
-	title: '',
+  title: '',
   loading: false,
   language: localStorage.getItem('app.language') || 'EN',
   downloadsLocation: localStorage.getItem('app.downloadsLocation') || '',

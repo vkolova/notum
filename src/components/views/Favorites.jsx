@@ -17,32 +17,41 @@ import '~~/styles/Popular.scss'
 export default class Favorites extends Component {
 	constructor (props) {
 		super()
-		this.state = {}
-    AppStore.setLoading(true)
+		this.state = { favorites: [] }
+        AppStore.setLoading(true)
 	}
 
-	componentDidMount = () => setWindowTitle(gettext('Favorites'))
+	componentDidMount () {
+        setWindowTitle(gettext('Favorites'))
+    }
 
-	componentWillMount = async () => {
-		const response = await userAPI.getFavorites()
-    const tmdbData = await Promise.all(response.data.map(s => tmdbAPI.getShowData(s.showId).then(res => res.data)))
-    await this.setState({ favorites: tmdbData })
-    await AppStore.setLoading(false)
-	}
-
-	render = () => (
-		<div className='view-wrapper'>
-			<div className='shows-container'>
-        {
-          this.state.favorites &&
-            this.state.favorites.map(s =>
-              <ShowCard
-                key={s.id.toString()}
-                data={s}
-              />
+	componentWillMount () {
+        userAPI.getFavorites().then(favorites =>
+            favorites.data.map(s =>
+                tmdbAPI.getShowData(s.showId).then(show =>
+                    this.setState({
+                        favorites: [...this.state.favorites, show.data]
+                    })
+                )
             )
-        }
-			</div>
-		</div>
-	)
+        )
+	}
+
+	render () {
+        return (
+            <div className='content'>
+                <div className='show-grid'>
+                {
+                  this.state.favorites &&
+                    this.state.favorites.map(s =>
+                      <ShowCard
+                        key={s.id.toString()}
+                        data={s}
+                      />
+                    )
+                }
+    			</div>
+    		</div>
+    	);
+    }
 }

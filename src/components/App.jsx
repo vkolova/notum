@@ -32,7 +32,7 @@ export default class App extends Component {
 				<Route exact path='/settings' component={MainLayout}></Route>
 				<Route exact path='/downloads' component={MainLayout}></Route>
 
-        <Route exact path='/users' component={MainLayout}></Route>
+                <Route exact path='/users' component={MainLayout}></Route>
 
 				<Route component={CleanLayout}></Route>
 			</Switch>

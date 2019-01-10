@@ -5,7 +5,8 @@ const getShowData = showId =>
 	axios.get(`${consts.TV_GET}/${showId}`, {
 		params: {
 			api_key: consts.API_KEY,
-			language: 'en-US'
+			language: 'en-US',
+            append_to_response: 'videos'
 		}
 	})
 

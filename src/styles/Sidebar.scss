@@ -1,11 +1,12 @@
 @import '_variables';
 
 .sidebar {
-	width: $sidebar-width;
+	width: 50px;
 	color: rgba($white, 0.7);
 }
 
 .sb-profile {
+    min-width: 180px;
 	padding: 10px;
 	display: flex;
 	align-items: center;
@@ -40,9 +41,9 @@
 
 
 .sb-item {
-	height: 35px;
-	padding: 0 30px;
-	line-height: 35px;
+    line-height: 40px;
+    font-size: 18px;
+    text-align: center;
 }
 
 .sb-title {

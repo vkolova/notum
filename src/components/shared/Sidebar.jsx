@@ -10,48 +10,13 @@ import '~~/styles/Sidebar.scss'
 
 const Sidebar = observer(props => (
   <div className='sidebar'>
-
-    <div className='sb-profile'>
-      <div>
-        <NavLink to={ `/u/${props.store.username}` }>
-          <Avatar store={ props.store }/>
-        </NavLink>
-      </div>
-      <div className='sb-user-info'>
-        <span className='sb-username'>{ props.store.username }</span>
-        <br/>
-        <span className='online'>{ props.store.online ? gettext('online') : gettext('offline') }</span>
-      </div>
-      <div>
-        <NavLink to='/logout'>
-          <Icon icon={`sign-out`}/>
-        </NavLink>
-      </div>
-    </div>
-
-    {
-      props.store.admin && <div className='sb-title'>{ gettext('Admin') }</div>
-    }
-    {
-      props.store.admin && <NavLink
-        exact
-        to='/users'
-        className='sb-link'
-        activeClassName='sb-link-active'
-      >
-        <div className='sb-item'><Icon icon={`users`}/> { gettext('Users') }</div>
-      </NavLink>
-    }
-
-    <div className='sb-title'>{ gettext('Main') }</div>
-
     <NavLink
       exact
       to='/'
       className='sb-link'
       activeClassName='sb-link-active'
     >
-      <div className='sb-item'><Icon icon={`home`}/> { gettext('Home') }</div>
+      <div className='sb-item'><Icon icon={`home`}/></div>
     </NavLink>
 
     <NavLink
@@ -60,7 +25,7 @@ const Sidebar = observer(props => (
       className='sb-link'
       activeClassName='sb-link-active'
     >
-      <div className='sb-item'><Icon icon={`heart`}/> { gettext('Favorites') }</div>
+      <div className='sb-item'><Icon icon={`heart`}/></div>
     </NavLink>
 
     <NavLink
@@ -69,7 +34,7 @@ const Sidebar = observer(props => (
       className='sb-link'
       activeClassName='sb-link-active'
     >
-      <div className='sb-item'><Icon icon={`clock-o`}/> { gettext('Catch Up') }</div>
+      <div className='sb-item'><Icon icon={`clock-o`}/></div>
     </NavLink>
 
     <NavLink
@@ -78,10 +43,8 @@ const Sidebar = observer(props => (
       className='sb-link'
       activeClassName='sb-link-active'
     >
-      <div className='sb-item'><Icon icon={`download`}/> { gettext('Downloads') }</div>
+      <div className='sb-item'><Icon icon={`download`}/></div>
     </NavLink>
-
-    <div className='sb-title'>{ gettext('Discover') }</div>
 
     <NavLink
       exact
@@ -89,7 +52,7 @@ const Sidebar = observer(props => (
       className='sb-link'
       activeClassName='sb-link-active'
     >
-      <div className='sb-item'><Icon icon={`star`}/> { gettext('Top rated') }</div>
+      <div className='sb-item'><Icon icon={`star`}/></div>
     </NavLink>
 
     <NavLink
@@ -98,11 +61,9 @@ const Sidebar = observer(props => (
       className='sb-link'
       activeClassName='sb-link-active'
     >
-      <div className='sb-item'><Icon icon={`fire`}/> { gettext('Popular') }</div>
+      <div className='sb-item'><Icon icon={`fire`}/></div>
     </NavLink>
 
-
-    <div className='sb-title'>{ gettext('Account') }</div>
 
     <NavLink
       exact
@@ -110,7 +71,7 @@ const Sidebar = observer(props => (
       className='sb-link'
       activeClassName='sb-link-active'
     >
-      <div className='sb-item'><Icon icon={`cog`}/> { gettext('Settings') }</div>
+      <div className='sb-item'><Icon icon={`cog`}/></div>
     </NavLink>
 
     <NavLink
@@ -119,10 +80,8 @@ const Sidebar = observer(props => (
       className='sb-link'
       activeClassName='sb-link-active'
     >
-      <div className='sb-item'><Icon icon={`sign-out`}/> { gettext('Logout') }</div>
+      <div className='sb-item'><Icon icon={`sign-out`}/></div>
     </NavLink>
-
-    <div className='sb-hr'/>
 
   </div>
 ))

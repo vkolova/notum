@@ -16,5 +16,6 @@ ReactDOM.render(
 	document.getElementById('root')
 )
 
+
 window.addEventListener('online',  () => UserStore.online = true)
 window.addEventListener('offline', () => UserStore.online = false)

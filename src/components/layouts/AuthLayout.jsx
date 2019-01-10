@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import LoadingScreen from '~~/components/shared/LoadingScreen'
 import SignIn from '../views/SignIn'
 import SignUp from '../views/SignUp'
 
@@ -10,14 +9,13 @@ import AppStore from '~~/stores/app'
 
 import '../../styles/Auth.scss'
 
-export default class AuthLayout extends Component {
-	render = () => (
-		<div>
-      <LoadingScreen store={AppStore}/>
-			<Switch>
-				<Route exact path='/' component={SignIn} store={UserStore}></Route>
-				<Route exact path='/sign-up' component={SignUp}></Route>
-			</Switch>
-		</div>
-	)
-}
+const AuthLayout = () => (
+	<div>
+		<Switch>
+			<Route exact path='/' component={SignIn} store={UserStore}></Route>
+			<Route exact path='/sign-up' component={SignUp}></Route>
+		</Switch>
+	</div>
+)
+
+export default AuthLayout

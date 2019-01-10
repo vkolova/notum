@@ -1,95 +1,150 @@
+@import '~semantic-ui-css/components/accordion.min.css';
+@import '~semantic-ui-css/components/item.min.css';
+@import '~semantic-ui-css/components/icon.min.css';
+@import '~semantic-ui-css/components/image.min.css';
+@import '~semantic-ui-css/components/modal.min.css';
+@import '~semantic-ui-css/components/dimmer.min.css';
+
 @import '_variables';
 
 .show-page {
 	position: relative;
 	color: $white;
-  background-color: $black !important;
+    background-color: $black !important;
 
 	z-index: 1;
 
-	&:before {
-		content: '';
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		background-image: linear-gradient(to bottom right, rgba(10, 10, 10, 0.5), rgba(0, 0, 0, 0.7));
-		z-index: 1;
-	}
+    .show-poster  img {
+        max-height: 45vh;
+    }
 
-	.show-poster  img {
-    max-height: 100%;
-  }
+    .show-poster {
+        width: 210px;
+        position: relative;
 
-	.show-info {
-		margin-left: 25px;
-	}
+        &:hover {
+            .icon-wrapper {
+                display: flex;
+            }
+        }
+    }
 
-	.details {
-		color: rgba($white, 0.7);
+    .icon-wrapper {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        align-items: center;
+        justify-content: center;
+        display: none;
 
-		span {
-			margin: 0 3px;
-	    margin-right: 15px;
-		}
+        .icon {
+            cursor: pointer;
+        }
+    }
 
-		i {
-			color: $white;
-		}
-	}
-}
+    .show-info {
+        margin-left: 25px;
+    }
 
-.show-overview {
-  max-height: 300px;
-  display: flex;
-  flex: 1;
+    .details {
+        color: rgba($white, 0.7);
+
+        span {
+            margin: 0 3px;
+            margin-right: 15px;
+        }
+
+        i {
+            color: $white;
+        }
+    }
 }
 
 .show-background {
-  top: 0;
-  left: 0;
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	background-size: cover;
-	background-position: center;
-	filter: blur(17px);
-  overflow: hidden;
-	z-index: 0;
+    max-width: 100%;
+    top: 0;
+    position: absolute;
+
+    z-index: -10;
+    object-fit: contain;
 }
 
+.js-backdrop-fade {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: absolute;
+    z-index: -3;
 
-.show-section {
-  padding: 15px;
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  color: $white;
-  z-index: 1;
+    &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        top: 0;
+        position: absolute;
+        display: block;
 
-  .show-header {
-    max-height: 50px;
+        background-repeat: no-repeat;
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)),
+            radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)),
+            linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+
+        z-index: 1;
+        pointer-events: none;
+    }
+}
+
+.show-content {
     display: flex;
     flex: 1;
-    justify-content: space-between;
-    font-size: 22px;
-  }
 
-  .show-tab {
-    max-height: 300px;
-    min-width: 100px;
-    padding: 5px;
+    z-index: 10;
+}
+
+.show-overview {
+    display: flex;
     flex: 1;
-    background-color: rgba($black, 0.3);
-    overflow: auto;
-  }
+}
+
+.main-overview {
+    padding: 0 20px;
+    flex-direction: column;
+    flex: 0.3;
+}
+
+.show-section {
+    padding: 15px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    color: $white;
+    z-index: 1;
+
+    .show-header {
+        max-height: 50px;
+        display: flex;
+        flex: 1;
+        justify-content: space-between;
+        font-size: 22px;
+
+        z-index: 10;
+    }
+
+    .show-tab {
+        max-height: 300px;
+        min-width: 100px;
+        padding: 5px;
+        flex: 1;
+        background-color: rgba($black, 0.3);
+        overflow: auto;
+    }
 }
 
 .show-global-actions {
-  span {
-    margin: 0 5px;
-  }
+    span {
+        margin: 0 5px;
+    }
 }
 
 .sm-item {
@@ -99,4 +154,39 @@
   &:hover {
     background-color: rgba($white, 0.01);
   }
+}
+
+.modal .content {
+    text-align: center;
+}
+
+.accordion {
+    .title .header {
+        text-transform: uppercase;
+    }
+
+    .title.active {
+        color: $primary-color !important;
+    }
+
+    .content {
+        padding-left: 30px !important;
+    }
+}
+
+.ui.items {
+    color: #fff !important;
+
+    .header, .meta, .description {
+        color: #fff !important;
+    }
+
+    .description {
+        max-width: 500px;
+    }
+}
+
+.shows-n-episodes {
+    padding: 10px 25px;
+    overflow: auto;
 }

@@ -1,23 +1,41 @@
 @import '_variables';
 
-.shows-container {
-  display: flex;
-  flex: 1 0 0;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  will-change: overflow;
-  overflow: auto;
+
+.content {
+    display: flex;
+    flex: 1 0 0;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    will-change: overflow;
+    overflow: auto;
 }
 
-.pagination {
-  height: 50px;
-  width: 100%;
-  font-size: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  a {
-    color: rgba($black, 0.7);
-  }
+.show-grid {
+    display: flex;
+    flex-wrap: wrap;
 }
+
+// .shows-container {
+//   display: flex;
+//   flex: 1 0 0;
+//   flex-wrap: wrap;
+//   justify-content: space-around;
+//   will-change: overflow;
+//   overflow: auto;
+//
+//   background-color: darken(#232625, 30);
+// }
+//
+// .pagination {
+//   height: 50px;
+//   width: 100%;
+//   font-size: 25px;
+//   display: flex;np
+//   justify-content: center;
+//   align-items: center;
+//
+//   a {
+//     color: rgba($black, 0.7);
+//   }
+// }

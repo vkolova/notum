@@ -2,7 +2,7 @@
 @import '~font-awesome/css/font-awesome.css';
 
 .main-layout {
-  flex: 1;
+  flex: 1 0 0;
   display: flex;
 }
 
@@ -31,4 +31,11 @@
 .disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

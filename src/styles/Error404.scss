@@ -42,8 +42,8 @@ $class-small-planet: small-planet !default
 @for $i from 1 through 10 {
 	.#{$class-small-planet}-#{$i} {
 		@include circle(#{$i}px);
-		top: random(100) + %;
-		left: random(100) + %;
+		// top: random(100) + %;
+		// left: random(100) + %;
 		position: absolute;
 		background-image: linear-gradient(135deg, rgba($dirty-white, 0.7) 0%, rgba($light-blue, 0.7) 100%);
 		box-shadow: 0 0 15px rgba($white, 0.7);

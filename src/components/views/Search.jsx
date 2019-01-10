@@ -19,14 +19,18 @@ export default class Popular extends Component {
 		}
 	}
 
-	componentWillMount = async () => {
-		const response = await tmdbAPI.searchBy(this.props.location.search)
-		await this.setState({ ...this.setState.page, data: response.data })
-	}
+    componentDidMount () {
+        tmdbAPI.searchBy(this.props.location.search)
+            .then(res => {
+                this.setState({ ...this.state.page, data: res.data })
+            })
+            .catch(err => new Error(err))
+            .then(() => AppStore.setLoading(false))
+    }
 
 	render = () => (
-		<div className='view-wrapper'>
-			<div className='shows-container'>
+        <div className='content'>
+            <div className='show-grid'>
 				{
 					this.state.data.results &&
 						this.state.data.results.map(s =>
@@ -36,18 +40,18 @@ export default class Popular extends Component {
 							/>
 						)
 				}
-				<div className='pagination'>
-					{
-						this.state.data.page > 1
-							? <Link to={`/tv/search?page=${this.state.data.page * 1 - 1}`}>
-									<Icon icon='chevron-left'/>
-								</Link>
-							: null
-					}
-					<Link to={`/tv/search?page=${this.state.data.page * 1 + 1}`}>
-						<Icon icon='chevron-right'/>
-					</Link>
-				</div>
+            </div>
+			<div className='pagination'>
+				{
+					this.state.data.page > 1
+						? <Link to={`/tv/search?page=${this.state.data.page * 1 - 1}`}>
+								<Icon icon='chevron-left'/>
+							</Link>
+						: null
+				}
+				<Link to={`/tv/search?page=${this.state.data.page * 1 + 1}`}>
+					<Icon icon='chevron-right'/>
+				</Link>
 			</div>
 		</div>
 	)

@@ -24,60 +24,31 @@ function createWindow() {
 	})
 
 	// and load the index.html of the app.
-  if (isDev) {
-    console.log('Running in development');
-    mainWindow.loadURL('http://localhost:3000/')
-  } else {
-    console.log('Running in production');
-    mainWindow.loadURL(path.resolve(__dirname, 'public/index.html'))
+    if (isDev) {
+        console.log('Running in development');
+        const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer');
+        mainWindow.loadURL('http://localhost:3000/')
+    } else {
+        console.log('Running in production');
+        mainWindow.loadURL(path.resolve(__dirname, 'public/index.html'))
+    }
+    
+    BrowserWindow.addDevToolsExtension('C:/Users/shadow of a dream/AppData/Local/Google/Chrome/User Data/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/3.5.0_0');
+    // Open the DevTools.
+    mainWindow.webContents.openDevTools()
 
-    var platform = os.platform() + '_' + os.arch();
-    var version = app.getVersion();
-
-    autoUpdater.setFeedURL('https://notum-update-server.herokuapp.com/update/' + platform + '/' + version);
-
-    setInterval(() => {
-      autoUpdater.checkForUpdates()
-    }, 60000)
-
-    autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
-      const dialogOpts = {
-        type: 'info',
-        buttons: ['Restart', 'Later'],
-        title: 'Application Update',
-        message: process.platform === 'win32' ? releaseNotes : releaseName,
-        detail: 'A new version has been downloaded. Restart the application to apply the updates.'
-      }
-
-      dialog.showMessageBox(dialogOpts, (response) => {
-        if (response === 0) autoUpdater.quitAndInstall()
-      })
+    // Emitted when the window is closed.
+    mainWindow.on('closed', () => {
+        // Dereference the window object, usually you would store windows
+        // in an array if your app supports multi windows, this is the time
+        // when you should delete the corresponding element.
+        mainWindow = null
     })
 
-    autoUpdater.on('error', message => {
-      console.error('There was a problem updating the application')
-      console.error(message)
-    })
-
-    autoUpdater.on('checking-for-update', _ => console.log('checking-for-update'))
-    autoUpdater.on('update-available', _ => console.log('update available'))
-  }
-
-	// Open the DevTools.
-	mainWindow.webContents.openDevTools()
-
-	// Emitted when the window is closed.
-	mainWindow.on('closed', () => {
-		// Dereference the window object, usually you would store windows
-		// in an array if your app supports multi windows, this is the time
-		// when you should delete the corresponding element.
-		mainWindow = null
-	})
-
-  if (!tray) {
-    tray = new Tray(path.resolve(__dirname, 'src/styles/images/notum-icon.png'))
-    tray.setToolTip('Notum')
-  }
+    if (!tray) {
+        tray = new Tray(path.resolve(__dirname, 'src/styles/images/notum-icon.png'))
+        tray.setToolTip('Notum')
+    }
 }
 
 // This method will be called when Electron has finished

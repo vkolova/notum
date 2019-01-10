@@ -1,38 +1,29 @@
+@import '~semantic-ui-css/components/popup.min.css';
+
 @import '_variables';
 
-$show-card-height: 250px;
+$show-card-height: 200px;
 
-.show-card {
-  height: $show-card-height;
-  max-width: 450px;
-  margin: 5px;
-  display: flex;
-  border: 1px solid rgba($black, 0.05);
-  border-radius: 5px;
-  background-color: $white;
+.show--poster {
+    max-width: 150px;
+    margin: 5px;
 
-  img {
-    max-height: $show-card-height - 1;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-  }
+    position: relative;
+    border-radius: 4px;
+    border: 1px solid rgba($black, 0.05);
 
-  .info {
-    padding: 15px;
-  }
+    a {
+        height: $show-card-height;
+    }
 
-  .title {
-    margin: 5px 0;
-    color: $black;
-    font-size: 16px;
-  }
-
-  .year {
-    color: rgba($black, 0.7);
-  }
+    img {
+        height: 100%;
+        width: 100%;
+        border-radius: 4px;
+        object-fit: contain;
+    }
 }
 
-.hr {
-  margin: 10px 20px;
-  border-bottom: 1px solid rgba($black, 0.05);
+.title-show-popup {
+    font-size: 9px !important;
 }
